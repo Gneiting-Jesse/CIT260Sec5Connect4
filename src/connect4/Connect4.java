@@ -20,7 +20,7 @@ public class Connect4 {
             + "You will have the option of choosing a 1 player game or\n"
             + "a 2 player game. Each player will have a different colored\n"
             + "circular disc with the object of the game to place 4 of your\n"
-            + "discs consecutively in a line either vertically,\n "
+            + "discs consecutively in a line either vertically,\n"
             + "horizontally or diagonally.\n\n"
             + "Good Luck!\n\n";
     public static void main(String[] args) {
