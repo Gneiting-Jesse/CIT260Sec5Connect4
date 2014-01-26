@@ -6,6 +6,10 @@
 
 package connect4;
 
+/**
+ *
+ * @author Jesse Gneiting and Marcy Jagielski
+ */
 import java.util.Scanner;
 
 /**
