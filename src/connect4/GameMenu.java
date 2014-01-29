@@ -29,8 +29,8 @@ public class GameMenu {
         System.out.println(this.newGameBtn);
         System.out.println(this.preferencesBtn);
         System.out.println(this.statisticsBtn);
-        System.out.println(helpMenuBtn);
-        System.out.println(quitBtn);
+        System.out.println(this.helpMenuBtn);
+        System.out.println(this.quitBtn);
     }
     
 }
