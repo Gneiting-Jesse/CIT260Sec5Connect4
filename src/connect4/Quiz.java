@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Owner
+ * @author Jesse
  */
 public class Quiz {
     String question1, question2, question3, question4, question5;
@@ -102,7 +102,7 @@ public class Quiz {
         quizPercentage = (this.points * 100 / this.totalPoints);
         System.out.println("\tYour Quiz Score is "+ this.points + ". This gives you a " + this.quizPercentage + "%");
         if (this.quizPercentage <= 60) {
-        System.out.println("\tFailing Grade - Please retake the test.");
+        System.out.println("\tFailing Grade - Please retake the quiz.");
         }
         else System.out.println("\tYou PASSED Congratulations!");
     }
