@@ -58,7 +58,7 @@ public class HelpMenuView {
                 case "Q": 
                     break;
                 default: 
-                    new Connect4Error().displayError("Invalid choice. Please enter a valid option.");
+                    System.out.println("Error. Invalid choice. Please enter a valid option.\n");
             }
         } while (!command.equals("Q"));  
     }
