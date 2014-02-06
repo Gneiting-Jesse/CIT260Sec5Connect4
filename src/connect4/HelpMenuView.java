@@ -58,12 +58,9 @@ public class HelpMenuView {
                 case "Q": 
                     break;
                 default: 
-                    new connect4error().displayError("Invalid choice. Please enter a valid option.");
-                    continue;
+                    new Connect4Error().displayError("Invalid choice. Please enter a valid option.");
             }
         } while (!command.equals("Q"));  
-        
-         return;
     }
 
         // displays the help menu
