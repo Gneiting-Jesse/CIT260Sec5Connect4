@@ -18,9 +18,9 @@ public class HelpMenuControl  {
 
     public void displayGameHelp() {
          
-        System.out.println("\tThe objective of the game is to be the first\n"
-                + "\tplayer to place 4 of circular discs conecutively in a\n"
-                + "\tline either vertically, horizontally or diagonally.\n\n"
+        System.out.println("\tThe objective of the game is to be the first player\n"
+                + "\tto place 4 circular discs consecutively in a lin either\n"
+                + "\tvertically, horizontally or diagonally.\n\n"
                 + "\tGood Luck!\n\n");
                 
 
@@ -36,8 +36,8 @@ public class HelpMenuControl  {
     public void display2PlayerHelp() {
     
         System.out.println("\tIn a 2 Player Game you will have the opportunity to\n"
-                + "\tcompete against your friend, family, or even enemy to find out\n"
-                + "\twhich on of you is the best gamer.\n\n"); 
+                + "\tcompete against your friend, family, or even enemy to\n"
+                + "\tfind out which on of you is the best gamer.\n\n"); 
     }
     
                    
