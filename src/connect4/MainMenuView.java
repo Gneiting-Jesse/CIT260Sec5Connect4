@@ -64,7 +64,7 @@ public class MainMenuView {
     }
     
      public final void display(){
-        System.out.println("Enter the character associated with one of the following options:\n");
+        System.out.println("\tEnter the character associated with one of the following options:\n");
         
         for (int i = 0; i < MainMenuView.menuItems.length; i++) {
             System.out.println("\t    " + menuItems[i][0] + "\t" + menuItems[i][1]);
