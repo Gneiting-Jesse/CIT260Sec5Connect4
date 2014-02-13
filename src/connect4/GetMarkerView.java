@@ -37,7 +37,6 @@ public class GetMarkerView {
                 continue;
             }
             
-            newMarker = newMarker.substring(0, 1).toUpperCase();
             valid = true;
         }
         
