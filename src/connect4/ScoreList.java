@@ -11,7 +11,7 @@ package connect4;
  * @author Jesse
  */
 public class ScoreList {
-    static String scoreList[] = {"zack won 5 games","anndee won 2 games","Robby won 3 games","george won 1 game","mallory won 2 games"};
+    static String scoreList[] = {"Zack won 5 games","Anndee won 2 games","Robby won 3 games","George won 1 game","Mallory won 2 games"};
     String temp;
     static int shortestStringIndex;
     
