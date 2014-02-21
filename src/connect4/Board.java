@@ -6,6 +6,8 @@
 
 package connect4;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Jesse
@@ -22,6 +24,8 @@ public class Board {
     }
      public static void main(String[] args) {
        Board board = new Board();
+       board.displayBoard();
+       
     }
 
     public Board(int noRows, int noColumns) {
@@ -45,6 +49,24 @@ public class Board {
         }   
     }
     
+    public void displayBoard() {
+        Scanner inFile = new Scanner(System.in);
+        
+            int t, i;
+            int val = 5;
+            int board[][] = new int[6][7];
+            boolean found = false;
+        
+            for(t = 0; t < 6; ++t) {
+                for(i = 0; i < 7; ++i) {
+                    board[t][i] = (t * 7) + i + 1;
+                    System.out.print(board[t][i] + "\t");
+            }
+            System.out.println("\n\n");
+            
+        }
+           
+    }
     // method for clearing locations still need to add player class to 
     // help clear the board
     public void clearTheBoard() {
