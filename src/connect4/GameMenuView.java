@@ -5,7 +5,7 @@
  */
 
 package connect4;
-
+//I THINK WE CAN GET RID OF THIS.
 /**
  *
  * @author marcy
@@ -28,7 +28,7 @@ public class GameMenuView {
         
     }
 
-    public static void main(String[] args) {
+    public void mainMeth() {
        GameMenuView gameMenu = new GameMenuView();
        gameMenu.getInput();
     }

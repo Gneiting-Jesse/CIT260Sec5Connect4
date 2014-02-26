@@ -35,12 +35,15 @@ public class Connect4 {
     }
     public void getName() {
         Scanner input = new Scanner(System.in);
-        System.out.println("Enter your name: ");
+        System.out.println("Welcome to Connect 4! Enter your name: ");
         this.name = input.next();
         
     }
     public void displayHelp () {
         System.out.println("\nWelcome " + this.name + "\n");
         System.out.println(this.instructions);
+        
+        MainMenuView mainMenu = new MainMenuView();
+        mainMenu.getInput();
     }
 }

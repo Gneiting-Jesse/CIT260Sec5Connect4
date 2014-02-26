@@ -28,7 +28,7 @@ public class MainMenuView {
 
     }
     
-    public static void main(String[] args) {
+    public void mainMeth() {
        MainMenuView mainMenu = new MainMenuView();
        mainMenu.getInput();
     }

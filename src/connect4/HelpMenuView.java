@@ -28,7 +28,7 @@ public class HelpMenuView {
     public HelpMenuView() {
         
     } 
-    public static void main(String[] args) {
+    public void mainMeth() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.getInput();
     }
