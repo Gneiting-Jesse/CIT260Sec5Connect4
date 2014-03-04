@@ -24,12 +24,6 @@ public class GameMenuControl {
         
     }
     
-    public void displayStatistics() {
-        
-        System.out.println("\tstub. This option would allow the user\n"
-                           + "\tto go to the Statistics page.");
-        
-    }
     
     public void displayHelpMenu() {
         

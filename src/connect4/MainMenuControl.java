@@ -12,6 +12,8 @@ package connect4;
  */
 public class MainMenuControl {
     
+    private Quiz quiz = new Quiz();
+    
     public MainMenuControl(){
         
     }
@@ -27,6 +29,12 @@ public class MainMenuControl {
         
         System.out.println("\tThis option would allow the user\n"
                            + "\tto start a Two Player Game.\n");
+        
+    }
+    
+    public void getAnswers() {
+        Quiz quiz = new Quiz();
+        quiz.getAnswers();
         
     }
     

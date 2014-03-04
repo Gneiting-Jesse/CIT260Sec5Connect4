@@ -19,7 +19,7 @@ public class Quiz {
     short totalPoints = 500;
     float quizPercentage;
     
-     public static void main(String[] args) {
+     public void mainMeth() {
        Quiz gameQuiz = new Quiz();
         gameQuiz.getAnswers(); 
      }
@@ -31,11 +31,11 @@ public class Quiz {
         System.out.println("Question #1: This game is only played with 1 player.");
         this.question1 = input.next();
         switch (question1) {
-            case "False":
+            case "false":
                 System.out.println("Correct\n");
                 points = (short) (points + correctAns);
                 break;
-            case "True":
+            case "true":
                 System.out.println("Incorrect\n");
                 break;
             default:
@@ -46,11 +46,11 @@ public class Quiz {
                 + "a row either vertically, horizontally or diagonally in the winner.");
         this.question2 = input.next();
         switch (question2) {
-            case "True":
+            case "true":
                 System.out.println("Correct\n");
                 points = (short) (points + correctAns);
                 break;
-            case "False":
+            case "false":
                 System.out.println("Incorrect\n");
                 break;
             default:
@@ -60,11 +60,11 @@ public class Quiz {
         System.out.println("Question #3: A player may not take two turns consecutively.");
         this.question3 = input.next();
         switch (question3) {
-            case "True":
+            case "true":
                 System.out.println("Correct\n");
                 points = (short) (points + correctAns);
                 break;
-            case "False":
+            case "false":
                 System.out.println("Incorrect\n");
                 break;
             default:
@@ -74,11 +74,11 @@ public class Quiz {
         System.out.println("Question #4: A player may not undo a turn once taken.");
         this.question4 = input.next();
         switch (question4) {
-            case "True":
+            case "true":
                 System.out.println("Correct\n");
                 points = (short) (points + correctAns);
                 break;
-            case "False":
+            case "false":
                 System.out.println("Incorrect\n");
                 break;
             default:
@@ -88,11 +88,11 @@ public class Quiz {
         System.out.println("Question #5: Connect 4 is exactly the same as Tic Tac Toe.");
         this.question5 = input.next();
         switch (question5) {
-            case "False":
+            case "false":
                 System.out.println("Correct\n");
                 points = (short) (points + correctAns);
                 break;
-            case "True":
+            case "true":
                 System.out.println("Incorrect\n");
                 break;
             default:
@@ -102,9 +102,9 @@ public class Quiz {
         quizPercentage = (this.points * 100 / this.totalPoints);
         System.out.println("\tYour Quiz Score is "+ this.points + ". This gives you a " + this.quizPercentage + "%");
         if (this.quizPercentage <= 60) {
-        System.out.println("\tFailing Grade - Please retake the quiz.");
+        System.out.println("\tFailing Grade - Please retake the quiz.\n\n");
         }
-        else System.out.println("\tYou PASSED Congratulations!");
+        else System.out.println("\tYou PASSED! Congratulations!\n\n");
     }
         
 }

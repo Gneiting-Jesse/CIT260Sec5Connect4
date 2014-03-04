@@ -58,14 +58,18 @@ public class HelpMenuView {
                 case "Q": 
                     break;
                 default: 
-                    System.out.println("Error. Invalid choice. Please enter a valid option.\n");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("\tError. Invalid choice. Please enter a valid option.");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             }
         } while (!command.equals("Q"));  
     }
 
         // displays the help menu
     public final void display() {
+        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("\tEnter the character associated with one of the following options:");
+        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
 
         for (int i = 0; i < HelpMenuView.menuItems.length; i++) {
             System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);

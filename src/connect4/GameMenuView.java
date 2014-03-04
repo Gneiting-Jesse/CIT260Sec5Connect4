@@ -15,7 +15,6 @@ import java.util.Scanner;
 public class GameMenuView {
     private final static String[][] gamemenuItems = {
         {"N", "New Game"},
-        {"S", "Statistics"},
         {"H", "Help"},
         {"Q", "Quit"}
     };
@@ -48,9 +47,6 @@ public class GameMenuView {
                 case "N":
                     this.gameMenuControl.displayNewGame();
                     break;
-                case "S":
-                    this.gameMenuControl.displayStatistics();
-                    break;
                 case "H":
                     this.gameMenuControl.displayHelpMenu();
                     break;
@@ -65,7 +61,9 @@ public class GameMenuView {
     }
     //displays the menu
     public final void display(){
-        System.out.println("Enter the character associated with one of the following options:\n");
+        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+        System.out.println("\tEnter the character associated with one of the following options:");
+        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
         for (int i = 0; i < GameMenuView.gamemenuItems.length; i++) {
             System.out.println("\t    " + gamemenuItems[i][0] + "\t" + gamemenuItems[i][1]);

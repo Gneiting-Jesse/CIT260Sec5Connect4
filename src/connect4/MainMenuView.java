@@ -16,8 +16,9 @@ public class MainMenuView {
     
 
     private static final String[][] menuItems = {
-        {"1", "One player game"},
-        {"2", "Two player game"},
+        {"1", "Begin a One player game"},
+        {"2", "Begin a Two player game"},
+        {"T", "Take Quiz"},
         {"H", "Help"},
         {"Q", "Quit"}
     
@@ -50,6 +51,8 @@ public class MainMenuView {
                 case "2":
                     this.mainMenuControl.startTwoPlayerGame();
                     break;
+                case "T":
+                    this.mainMenuControl.getAnswers();
                 case "H":
                     this.mainMenuControl.displayHelpMenu();            
                     break;
@@ -64,7 +67,9 @@ public class MainMenuView {
     }
     
      public final void display(){
-        System.out.println("\tEnter the character associated with one of the following options:\n");
+         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+         System.out.println("\tEnter the character associated with one of the following options:");
+         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
         
         for (int i = 0; i < MainMenuView.menuItems.length; i++) {
             System.out.println("\t    " + menuItems[i][0] + "\t" + menuItems[i][1]);
