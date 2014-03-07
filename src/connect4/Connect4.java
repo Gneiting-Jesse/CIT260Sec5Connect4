@@ -19,7 +19,6 @@ import java.util.Scanner;
 public class Connect4 {
 
     // Instance variables
-    String name;
     String instructions = "\t\t\t Welcome to Connect4!\n\n"
             + "\tYou will have the option of choosing a 1 player game or\n"
             + "\ta 2 player game. Each player will have a different game\n"
