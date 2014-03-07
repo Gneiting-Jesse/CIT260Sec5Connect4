@@ -6,17 +6,28 @@
 
 package connect4;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Jesse
  */
-public class MainMenuControl {
+public class MainMenuControl implements Serializable {
     
     private Quiz quiz = new Quiz();
     
     public MainMenuControl(){
         
     }
+
+    public Quiz getQuiz() {
+        return quiz;
+    }
+
+    public void setQuiz(Quiz quiz) {
+        this.quiz = quiz;
+    }
+    
     
      public void startOnePlayerGame() {
         

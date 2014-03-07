@@ -6,13 +6,14 @@
 
 package connect4;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Jesse
  */
-public class MainMenuView {
+public class MainMenuView implements Serializable {
     
 
     private static final String[][] menuItems = {
@@ -28,14 +29,22 @@ public class MainMenuView {
     public MainMenuView() {
 
     }
-    
+   
+    public MainMenuControl getMainMenuControl() {
+        return mainMenuControl;
+    }
+
+    public void setMainMenuControl(MainMenuControl mainMenuControl) {
+        this.mainMenuControl = mainMenuControl;
+    }
+        
     public void mainMeth() {
        MainMenuView mainMenu = new MainMenuView();
        mainMenu.getInput();
     }
     public void getInput() {
         String command;
-        Scanner inFile = new Scanner(System.in);
+        Scanner inFile = Connect4.getInputFile();
         
         do {
             this.display(); // display the menu

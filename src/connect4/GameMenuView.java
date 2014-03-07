@@ -10,11 +10,13 @@ package connect4;
  *
  * @author marcy
  */
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class GameMenuView {
+public class GameMenuView implements Serializable{
     private final static String[][] gamemenuItems = {
         {"N", "New Game"},
+        {"S", "Statistics"},
         {"H", "Help"},
         {"Q", "Quit"}
     };
@@ -27,14 +29,22 @@ public class GameMenuView {
         
     }
 
-    public void mainMeth() {
+    public GameMenuControl getGameMenuControl() {
+        return gameMenuControl;
+    }
+
+    public void setGameMenuControl(GameMenuControl gameMenuControl) {
+        this.gameMenuControl = gameMenuControl;
+    }
+    
+    public static void mainMeth() {
        GameMenuView gameMenu = new GameMenuView();
        gameMenu.getInput();
     }
     //display game menu and get users input
     public void getInput() {
         String command;
-        Scanner inFile = new Scanner(System.in);
+        Scanner inFile = Connect4.getInputFile(); 
         
         do {
             this.display(); //displays the menu
@@ -46,6 +56,9 @@ public class GameMenuView {
             switch(command) {
                 case "N":
                     this.gameMenuControl.displayNewGame();
+                    break;
+                case "S":
+                    this.gameMenuControl.displayStatistics();
                     break;
                 case "H":
                     this.gameMenuControl.displayHelpMenu();
@@ -61,9 +74,7 @@ public class GameMenuView {
     }
     //displays the menu
     public final void display(){
-        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("\tEnter the character associated with one of the following options:");
-        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+        System.out.println("Enter the character associated with one of the following options:\n");
         
         for (int i = 0; i < GameMenuView.gamemenuItems.length; i++) {
             System.out.println("\t    " + gamemenuItems[i][0] + "\t" + gamemenuItems[i][1]);

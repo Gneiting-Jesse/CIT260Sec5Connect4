@@ -10,9 +10,10 @@ package connect4;
  *
  * @author marcy
  */
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class HelpMenuView {
+public class HelpMenuView implements Serializable {
         
     private final static String[][] menuItems = {
         {"G", "Game Objective"},
@@ -28,6 +29,15 @@ public class HelpMenuView {
     public HelpMenuView() {
         
     } 
+
+    public HelpMenuControl getHelpMenuControl() {
+        return helpMenuControl;
+    }
+
+    public void setHelpMenuControl(HelpMenuControl helpMenuControl) {
+        this.helpMenuControl = helpMenuControl;
+    }
+    
     public void mainMeth() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.getInput();
@@ -36,7 +46,7 @@ public class HelpMenuView {
     public void getInput() {       
               
         String command;
-        Scanner inFile = new Scanner(System.in);
+        Scanner inFile = Connect4.getInputFile();
         
         do {
             

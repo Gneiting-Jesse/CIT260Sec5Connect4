@@ -6,23 +6,27 @@
 
 package connect4;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Jesse
  */
-public class GetMarkerView {
+public class GetMarkerView implements Serializable{
     
-    public static void main(String[] args) {
+    public static void mainMeth() {
        GetMarkerView getMarker = new GetMarkerView();
        getMarker.getInput();
+    }
+
+    public GetMarkerView() {
     }
     
     public String getInput() {
 
         String newMarker = null;
-        Scanner in = new Scanner(System.in);
+        Scanner inFile = Connect4.getInputFile();
                 
         boolean valid = false; 
         while (!valid) {
@@ -30,7 +34,7 @@ public class GetMarkerView {
             System.out.println("\n\tEnter a single character that will be "
                     + "used to mark your squares in the game.");
                             
-            newMarker = in.nextLine();
+            newMarker = inFile.nextLine();
            
             if (newMarker == null  || newMarker.length() > 1) {
                 System.out.println ("\n\tInvalid number of characters or entry");

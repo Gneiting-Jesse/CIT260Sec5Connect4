@@ -6,11 +6,13 @@
 
 package connect4;
 
+import java.io.Serializable;
+
 /**
  *
  * @author marcy
  */
-public class HelpMenuControl  {
+public class HelpMenuControl implements Serializable {
     
     public HelpMenuControl() {
         

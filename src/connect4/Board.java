@@ -6,23 +6,50 @@
 
 package connect4;
 
-import java.util.Scanner;
+import java.io.Serializable;
+
 
 /**
  *
  * @author Jesse
  */
-public class Board {
+public class Board implements Serializable{
     
 
-    public int rowCount = 6;
-    public int columnCount = 7;
+    private int rowCount = 6;
+    private int columnCount = 7;
    
-    public Location[][] boardLocations;
+    private Location[][] boardLocations;
 
     public Board() {
+        
     }
-     public static void main(String[] args) {
+
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    public void setRowCount(int rowCount) {
+        this.rowCount = rowCount;
+    }
+
+    public int getColumnCount() {
+        return columnCount;
+    }
+
+    public void setColumnCount(int columnCount) {
+        this.columnCount = columnCount;
+    }
+
+    public Location[][] getBoardLocations() {
+        return boardLocations;
+    }
+
+    public void setBoardLocations(Location[][] boardLocations) {
+        this.boardLocations = boardLocations;
+    }
+    
+    public static void mainMeth() {
        Board board = new Board();
        board.displayBoard();
        
@@ -50,8 +77,7 @@ public class Board {
     }
     
     public void displayBoard() {
-        Scanner inFile = new Scanner(System.in);
-        
+              
             int t, i;
             int val = 5;
             int board[][] = new int[6][7];

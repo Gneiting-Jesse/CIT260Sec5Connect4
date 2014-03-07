@@ -6,28 +6,49 @@
 
 package connect4;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
 /**
  *
  * @author Jesse Gneiting
  */
-public class PlayerNameMenu {
-    String player1name;
-    String player2name;
-    
-    public static void main(String[] args) {
+public class PlayerNameMenu implements Serializable{
+    private String player1name;
+    private String player2name;
+
+    public PlayerNameMenu() {
+    }
+
+     public String getPlayer1name() {
+        return player1name;
+    }
+
+    public void setPlayer1name(String player1name) {
+        this.player1name = player1name;
+    }
+
+    public String getPlayer2name() {
+        return player2name;
+    }
+
+    public void setPlayer2name(String player2name) {
+        this.player2name = player2name;
+    }
+   
+    public static void mainMeth() {
         PlayerNameMenu setupPlayers = new PlayerNameMenu();
         setupPlayers.getPlayerNames();
         setupPlayers.displayPlayerNames();
                
     }
+
     public void getPlayerNames() {
-        Scanner input = new Scanner(System.in);
+        Scanner inFile = Connect4.getInputFile();
         System.out.println("Enter Name of Player 1: ");
         System.out.println("Enter Name of Player 2: ");
-        this.player1name = input.next();
-        this.player2name = input.next();
+        this.player1name = inFile.next();
+        this.player2name = inFile.next();
         
     }
     public void displayPlayerNames() {
