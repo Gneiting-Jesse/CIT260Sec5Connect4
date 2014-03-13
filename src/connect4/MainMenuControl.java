@@ -48,7 +48,7 @@ public class MainMenuControl implements Serializable {
         quiz.getAnswers();
         
     }
-    
+
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView();
         helpMenu.getInput();

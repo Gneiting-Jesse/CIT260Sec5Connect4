@@ -68,9 +68,9 @@ public class MainMenuView implements Serializable {
                 case "Q":
                     break;
                 default: 
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.println("Error. Invalid choice. Please enter a valid option.");
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");                    
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+                    System.out.println("\tError. Invalid choice. Please enter a valid option.");
+                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");                    
             }
             } while (!command.equals("Q"));
     }

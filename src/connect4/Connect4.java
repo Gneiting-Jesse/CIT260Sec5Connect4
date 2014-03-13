@@ -41,11 +41,11 @@ public class Connect4 implements Serializable {
         
     public static void main(String[] args) {
         Connect4 myGame = new Connect4();
-        myGame.displayHelp();
+        myGame.displayWelcome();
         // TODO code application logic here
     }
 
-    private void displayHelp () {
+    private void displayWelcome () {
          System.out.println(this.instructions);
         
         MainMenuView mainMenu = new MainMenuView();
