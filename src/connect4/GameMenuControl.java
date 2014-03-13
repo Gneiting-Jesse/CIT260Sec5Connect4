@@ -17,7 +17,11 @@ public class GameMenuControl {
         
     }
     
-    public void displayNewGame() {
+    public void displayGetMarker() {
+        
+    }
+    
+    public void displayBeginGame() {
         
         System.out.println("\tstub. This option would allow the user\n"
                            +"\tto play a new game.");

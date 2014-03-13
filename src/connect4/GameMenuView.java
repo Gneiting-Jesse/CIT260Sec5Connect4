@@ -15,8 +15,9 @@ import java.util.Scanner;
 
 public class GameMenuView implements Serializable{
     private final static String[][] gamemenuItems = {
-        {"N", "New Game"},
-        {"S", "Statistics"},
+        {"M", "Get Marker"},
+        {"N", "Enter Name"},
+        {"B", "Begin Game"},
         {"H", "Help"},
         {"Q", "Quit"}
     };
@@ -54,11 +55,14 @@ public class GameMenuView implements Serializable{
             command = command.trim().toUpperCase();
             
             switch(command) {
-                case "N":
-                    this.gameMenuControl.displayNewGame();
+                case "M":
+                    this.gameMenuControl.displayGetMarker();
                     break;
-                case "S":
-                    this.gameMenuControl.displayStatistics();
+                case "N":
+                    this.gameMenuControl.displayPlayerName();
+                    break;
+                case "B":
+                    this.gameMenuControl.displayBeginGame();
                     break;
                 case "H":
                     this.gameMenuControl.displayHelpMenu();

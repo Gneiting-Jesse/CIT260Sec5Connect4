@@ -13,7 +13,7 @@ import java.util.Scanner;
  *
  * @author Jesse
  */
-public class MainMenuView implements Serializable {
+public abstract class MainMenuView extends Menu implements Serializable {
     
 
     private static final String[][] menuItems = {
@@ -27,9 +27,13 @@ public class MainMenuView implements Serializable {
     private MainMenuControl mainMenuControl = new MainMenuControl();
     
     public MainMenuView() {
+        super(MainMenuView.menuItems);
 
     }
-   
+
+
+    
+    
     public MainMenuControl getMainMenuControl() {
         return mainMenuControl;
     }
@@ -38,11 +42,8 @@ public class MainMenuView implements Serializable {
         this.mainMenuControl = mainMenuControl;
     }
         
-    public void mainMeth() {
-       MainMenuView mainMenu = new MainMenuView();
-       mainMenu.getInput();
-    }
-    public void getInput() {
+    @Override
+    public String executeCommands(Object object) {
         String command;
         Scanner inFile = Connect4.getInputFile();
         
@@ -73,15 +74,8 @@ public class MainMenuView implements Serializable {
                     System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");                    
             }
             } while (!command.equals("Q"));
+        return ("Q");
     }
     
-     public final void display(){
-         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-         System.out.println("\tEnter the character associated with one of the following options:");
-         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-        
-        for (int i = 0; i < MainMenuView.menuItems.length; i++) {
-            System.out.println("\t    " + menuItems[i][0] + "\t" + menuItems[i][1]);
-        }
-    }
+   
 }

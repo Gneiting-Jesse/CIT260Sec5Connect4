@@ -48,7 +48,13 @@ public class Connect4 implements Serializable {
     private void displayWelcome () {
          System.out.println(this.instructions);
         
-        MainMenuView mainMenu = new MainMenuView();
-        mainMenu.getInput();
+        MainMenuView mainMenu = new MainMenuView() {
+
+             @Override
+             public void getInput() {
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
+         };
+        mainMenu.executeCommands(null);
     }
 }
