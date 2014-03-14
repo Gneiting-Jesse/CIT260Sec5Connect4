@@ -40,5 +40,9 @@ public class GameMenuControl {
         System.out.println("\tstub. This option would allow the user\n"
                            + "\tto go to the Help Menu.");
     }
+
+    void displayPlayerName() {
+        
+    }
     
 }
