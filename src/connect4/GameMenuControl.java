@@ -5,7 +5,6 @@
  */
 
 package connect4;
-//I THINK WE CAN GET RID OF THIS.
 /**
  *
  * @author marcy
@@ -18,6 +17,7 @@ public class GameMenuControl {
     }
     
     public void displayGetMarker() {
+         System.out.println("\tstub. This woudl display the marker\n");
         
     }
     
@@ -37,11 +37,19 @@ public class GameMenuControl {
     
     public void displayHelpMenu() {
         
-        System.out.println("\tstub. This option would allow the user\n"
-                           + "\tto go to the Help Menu.");
-    }
+        HelpMenuView helpMenu = new HelpMenuView() {
 
+             @Override
+             public void getInput() {
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
+         };
+        helpMenu.executeCommands(null);
+    }
+    
     void displayPlayerName() {
+         System.out.println("\tstub. This would display the players\n"
+                           + "\tname on the line.");
         
     }
     

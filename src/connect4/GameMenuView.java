@@ -5,7 +5,6 @@
  */
 
 package connect4;
-//I THINK WE CAN GET RID OF THIS.
 /**
  *
  * @author marcy
@@ -13,8 +12,8 @@ package connect4;
 import java.io.Serializable;
 import java.util.Scanner;
 
-public class GameMenuView implements Serializable{
-    private final static String[][] gamemenuItems = {
+public abstract class GameMenuView extends Menu implements Serializable{
+    private final static String[][] menuItems = {
         {"M", "Get Marker"},
         {"N", "Enter Name"},
         {"B", "Begin Game"},
@@ -27,7 +26,7 @@ public class GameMenuView implements Serializable{
     
     //default constructor
     public GameMenuView(){
-        
+        super(GameMenuView.menuItems);
     }
 
     public GameMenuControl getGameMenuControl() {
@@ -38,12 +37,7 @@ public class GameMenuView implements Serializable{
         this.gameMenuControl = gameMenuControl;
     }
     
-    public static void mainMeth() {
-       GameMenuView gameMenu = new GameMenuView();
-       gameMenu.getInput();
-    }
-    //display game menu and get users input
-    public void getInput() {
+        public String excecuteCommands(Object object) {
         String command;
         Scanner inFile = Connect4.getInputFile(); 
         
@@ -61,9 +55,6 @@ public class GameMenuView implements Serializable{
                 case "N":
                     this.gameMenuControl.displayPlayerName();
                     break;
-                case "B":
-                    this.gameMenuControl.displayBeginGame();
-                    break;
                 case "H":
                     this.gameMenuControl.displayHelpMenu();
                     break;
@@ -75,14 +66,7 @@ public class GameMenuView implements Serializable{
                     System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             }
         }while (!command.equals("Q"));
-    }
-    //displays the menu
-    public final void display(){
-        System.out.println("Enter the character associated with one of the following options:\n");
-        
-        for (int i = 0; i < GameMenuView.gamemenuItems.length; i++) {
-            System.out.println("\t    " + gamemenuItems[i][0] + "\t" + gamemenuItems[i][1]);
-        }
+        return ("Q");
     }
 }
 

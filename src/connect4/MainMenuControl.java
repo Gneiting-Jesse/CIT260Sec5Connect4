@@ -49,8 +49,14 @@ public class MainMenuControl implements Serializable {
         
     }
     public void displayHelpMenu() {
-        HelpMenuView helpMenu = new HelpMenuView() {};
-        helpMenu.getInput();
-    }
-    
+        HelpMenuView helpMenu = new HelpMenuView() {
+
+             @Override
+             public void getInput() {
+                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+             }
+         };
+        helpMenu.executeCommands(null);
+    } 
 }
+

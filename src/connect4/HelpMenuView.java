@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 public abstract class HelpMenuView extends Menu implements Serializable {
         
-    private final static String[][] menuItems = {
+    static final String[][] menuItems = {
         {"G", "Game Objective"},
         {"1", "1 Player Game"}, 
         {"2", "2 Player Game"},      
