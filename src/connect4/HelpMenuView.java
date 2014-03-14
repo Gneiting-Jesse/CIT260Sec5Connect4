@@ -13,7 +13,7 @@ package connect4;
 import java.io.Serializable;
 import java.util.Scanner;
 
-public class HelpMenuView implements Serializable {
+public abstract class HelpMenuView extends Menu implements Serializable {
         
     private final static String[][] menuItems = {
         {"G", "Game Objective"},
@@ -27,6 +27,7 @@ public class HelpMenuView implements Serializable {
     
     // default constructor
     public HelpMenuView() {
+        super(HelpMenuView.menuItems);
         
     } 
 
@@ -37,14 +38,9 @@ public class HelpMenuView implements Serializable {
     public void setHelpMenuControl(HelpMenuControl helpMenuControl) {
         this.helpMenuControl = helpMenuControl;
     }
-    
-    public void mainMeth() {
-        HelpMenuView helpMenu = new HelpMenuView();
-        helpMenu.getInput();
-    }
-    // display the help menu and get the end users input selection
-    public void getInput() {       
-              
+    @Override
+    public String executeCommands (Object object) {
+    // display the help menu and get the end users input selection             
         String command;
         Scanner inFile = Connect4.getInputFile();
         
@@ -73,18 +69,6 @@ public class HelpMenuView implements Serializable {
                     System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
             }
         } while (!command.equals("Q"));  
+        return ("Q");
     }
-
-        // displays the help menu
-    public final void display() {
-        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        System.out.println("\tEnter the character associated with one of the following options:");
-        System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
-
-        for (int i = 0; i < HelpMenuView.menuItems.length; i++) {
-            System.out.println("\t   " + menuItems[i][0] + "\t" + menuItems[i][1]);
-        }
-    }
-  
 }
-
