@@ -10,6 +10,7 @@ package connect4;
  *
  * @author Jesse Gneiting and Marcy Jagielski
  */
+import byui.cit260.connect4.menuviews.MainMenuView;
 import java.io.Serializable;
 import java.util.Scanner;
 

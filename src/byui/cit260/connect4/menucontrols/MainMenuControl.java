@@ -4,8 +4,10 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menucontrols;
 
+import byui.cit260.connect4.menuviews.HelpMenuView;
+import connect4.Quiz;
 import java.io.Serializable;
 
 /**

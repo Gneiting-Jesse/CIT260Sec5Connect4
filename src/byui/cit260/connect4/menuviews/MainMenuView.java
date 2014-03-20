@@ -4,8 +4,11 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menuviews;
 
+import connect4.Connect4;
+import byui.cit260.connect4.menucontrols.MainMenuControl;
+import connect4.Menu;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -42,7 +45,6 @@ public abstract class MainMenuView extends Menu implements Serializable {
         this.mainMenuControl = mainMenuControl;
     }
         
-    @Override
     public String executeCommands(Object object) {
         String command;
         Scanner inFile = Connect4.getInputFile();

@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menuviews;
 
+import connect4.Connect4;
 import java.io.Serializable;
 import java.util.Scanner;
 

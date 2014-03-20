@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menucontrols;
 
 import java.io.Serializable;
 

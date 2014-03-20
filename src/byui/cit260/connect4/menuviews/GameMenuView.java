@@ -4,11 +4,14 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menuviews;
 /**
  *
  * @author marcy
  */
+import connect4.Connect4;
+import byui.cit260.connect4.menucontrols.GameMenuControl;
+import connect4.Menu;
 import java.io.Serializable;
 import java.util.Scanner;
 

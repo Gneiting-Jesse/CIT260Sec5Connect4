@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menucontrols;
+
+import byui.cit260.connect4.menuviews.HelpMenuView;
+
 /**
  *
  * @author marcy
@@ -47,7 +50,7 @@ public class GameMenuControl {
         helpMenu.executeCommands(null);
     }
     
-    void displayPlayerName() {
+    public void displayPlayerName() {
          System.out.println("\tstub. This would display the players\n"
                            + "\tname on the line.");
         

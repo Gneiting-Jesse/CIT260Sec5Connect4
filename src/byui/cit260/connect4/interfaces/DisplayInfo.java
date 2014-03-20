@@ -4,17 +4,12 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.interfaces;
 
 /**
  *
- * @author Owner
+ * @author marcy
  */
-public class Location {
-    public int row;
-    public int column;
-
-    Location() {
-    }
-
+public interface DisplayInfo {
+    void display();
 }

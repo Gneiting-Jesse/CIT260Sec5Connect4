@@ -4,12 +4,15 @@
  * and open the template in the editor.
  */
 
-package connect4;
+package byui.cit260.connect4.menuviews;
 
 /**
  *
  * @author marcy
  */
+import connect4.Connect4;
+import byui.cit260.connect4.menucontrols.HelpMenuControl;
+import connect4.Menu;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -38,7 +41,7 @@ public abstract class HelpMenuView extends Menu implements Serializable {
     public void setHelpMenuControl(HelpMenuControl helpMenuControl) {
         this.helpMenuControl = helpMenuControl;
     }
-    @Override
+
     public String executeCommands (Object object) {
     // display the help menu and get the end users input selection             
         String command;

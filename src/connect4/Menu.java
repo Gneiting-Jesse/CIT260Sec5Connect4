@@ -6,13 +6,14 @@
 
 package connect4;
 
+import byui.cit260.connect4.interfaces.DisplayInfo;
 import java.util.Scanner;
 
 /**
  *
  * @author marcy
  */
-public abstract class Menu {
+public abstract class Menu implements DisplayInfo {
     private String [][] menuItems = null;
 
     public Menu() {
@@ -23,8 +24,7 @@ public abstract class Menu {
         this.menuItems = menuItems;
     }
     
-    public abstract String executeCommands(Object object);
-    
+  
     public String[][] getMenuItems() {
         return menuItems;
     }
