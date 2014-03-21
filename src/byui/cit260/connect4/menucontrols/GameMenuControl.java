@@ -6,13 +6,14 @@
 
 package byui.cit260.connect4.menucontrols;
 
+import byui.cit260.connect4.interfaces.DisplayHelpMenu;
 import byui.cit260.connect4.menuviews.HelpMenuView;
 
 /**
  *
  * @author marcy
  */
-public class GameMenuControl {
+public class GameMenuControl implements DisplayHelpMenu{
     
     //default constructor
     public GameMenuControl(){
@@ -38,6 +39,7 @@ public class GameMenuControl {
         
     }
     
+    @Override
     public void displayHelpMenu() {
         
         HelpMenuView helpMenu = new HelpMenuView() {

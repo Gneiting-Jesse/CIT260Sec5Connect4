@@ -6,6 +6,7 @@
 
 package byui.cit260.connect4.menucontrols;
 
+import byui.cit260.connect4.interfaces.DisplayHelpMenu;
 import byui.cit260.connect4.menuviews.HelpMenuView;
 import connect4.Quiz;
 import java.io.Serializable;
@@ -14,7 +15,7 @@ import java.io.Serializable;
  *
  * @author Jesse
  */
-public class MainMenuControl implements Serializable {
+public class MainMenuControl implements DisplayHelpMenu {
     
     private Quiz quiz = new Quiz();
     
@@ -50,6 +51,7 @@ public class MainMenuControl implements Serializable {
         quiz.getAnswers();
         
     }
+    @Override
     public void displayHelpMenu() {
         HelpMenuView helpMenu = new HelpMenuView() {
 
@@ -61,4 +63,3 @@ public class MainMenuControl implements Serializable {
         helpMenu.executeCommands(null);
     } 
 }
-

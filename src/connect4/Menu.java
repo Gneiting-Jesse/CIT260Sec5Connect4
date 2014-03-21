@@ -33,6 +33,7 @@ public abstract class Menu implements DisplayInfo {
         this.menuItems = menuItems;
     }
     
+    @Override
     public final void display() {
         System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         System.out.println("\tEnter the character associated with one of the following options:");
