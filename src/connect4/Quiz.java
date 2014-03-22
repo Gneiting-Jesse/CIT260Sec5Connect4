@@ -112,5 +112,5 @@ public class Quiz implements Serializable{
         }
         else System.out.println("\tYou PASSED! Congratulations!\n\n");
     }
-        
+
 }
