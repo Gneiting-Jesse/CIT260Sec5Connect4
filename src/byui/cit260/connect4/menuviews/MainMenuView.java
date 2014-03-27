@@ -6,8 +6,6 @@
 
 package byui.cit260.connect4.menuviews;
 
-import byui.cit260.connect4.enums.ErrorType;
-import byui.cit260.connect4.exceptions.Connect4Exception;
 import connect4.Connect4;
 import byui.cit260.connect4.menucontrols.MainMenuControl;
 import connect4.Menu;
