@@ -6,6 +6,8 @@
 
 package byui.cit260.connect4.menuviews;
 
+import byui.cit260.connect4.enums.ErrorType;
+import byui.cit260.connect4.exceptions.Connect4Exception;
 import connect4.Connect4;
 import byui.cit260.connect4.menucontrols.MainMenuControl;
 import connect4.Menu;
@@ -34,9 +36,6 @@ public abstract class MainMenuView extends Menu implements Serializable {
 
     }
 
-
-    
-    
     public MainMenuControl getMainMenuControl() {
         return mainMenuControl;
     }
@@ -46,10 +45,11 @@ public abstract class MainMenuView extends Menu implements Serializable {
     }
         
     public String executeCommands(Object object) {
-        String command;
+        String command = null;
         Scanner inFile = Connect4.getInputFile();
         
         do {
+            try {
             this.display(); // display the menu
 
             // get input
@@ -69,15 +69,14 @@ public abstract class MainMenuView extends Menu implements Serializable {
                     this.mainMenuControl.displayHelpMenu();            
                     break;
                 case "Q":
-                    break;
-                default: 
-                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.println("\tError. Invalid choice. Please enter a valid option.");
-                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");                    
+                    return "Q";
+            }
+            }
+             catch (Exception e) {
+                System.out.println("\n" + e.getMessage());
             }
             } while (!command.equals("Q"));
         return ("Q");
     }
-    
-   
+       
 }

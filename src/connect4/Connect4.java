@@ -10,6 +10,7 @@ package connect4;
  *
  * @author Jesse Gneiting and Marcy Jagielski
  */
+import byui.cit260.connect4.exceptions.Connect4Exception;
 import byui.cit260.connect4.menuviews.MainMenuView;
 import java.io.Serializable;
 import java.util.Scanner;
@@ -43,7 +44,21 @@ public class Connect4 implements Serializable {
     public static void main(String[] args) {
         Connect4 myGame = new Connect4();
         myGame.displayWelcome();
-        // TODO code application logic here
+        MainMenuView mainMenu = new MainMenuView() {
+
+            @Override
+            public void getInput() {
+                throw new UnsupportedOperationException("Not supported yet.");
+            }
+        };
+         try {
+            mainMenu.executeCommands(null);
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        finally {
+            Connect4.inFile.close();
+        }
     }
 
     private void displayWelcome () {
@@ -53,7 +68,7 @@ public class Connect4 implements Serializable {
 
              @Override
              public void getInput() {
-                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                 throw new UnsupportedOperationException("Not supported yet.");
              }
          };
         mainMenu.executeCommands(null);
