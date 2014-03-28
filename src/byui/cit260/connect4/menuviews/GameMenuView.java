@@ -46,7 +46,7 @@ public abstract class GameMenuView extends Menu implements Serializable{
         String command;
         Scanner inFile = Connect4.getInputFile(); 
         
-        do {
+        do {            
             this.display(); //displays the menu
             
             //get input

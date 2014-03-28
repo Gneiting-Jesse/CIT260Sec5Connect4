@@ -43,7 +43,7 @@ public class Connect4 implements Serializable {
         this.instructions = instructions;
     }
         
-    public static void main(String[] args) throws MenuException, Connect4Exception {
+    public static void main(String[] args) throws Connect4Exception {
         Connect4 myGame = new Connect4();
        myGame.displayWelcome();
         MainMenuView mainMenu = new MainMenuView() {
