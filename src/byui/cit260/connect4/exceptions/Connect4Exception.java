@@ -8,7 +8,7 @@ package byui.cit260.connect4.exceptions;
 
 /**
  *
- * @author Owner
+ * @author Jesse
  */
 public class Connect4Exception extends Exception {
      public Connect4Exception() {

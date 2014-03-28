@@ -8,7 +8,7 @@ package byui.cit260.connect4.exceptions;
 
 /**
  *
- * @author Owner
+ * @author Jesse
  */
 public class MenuException extends Exception {
 

@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.util.Scanner;
 
 public class Connect4 implements Serializable {
-    private static Scanner inFile = new Scanner(System.in);
+    private static final Scanner inFile = new Scanner(System.in);
     // Instance variables
     private String instructions = "\t\t\t Welcome to Connect4!\n\n"
             + "\tYou will have the option of choosing a 1 player game or\n"
@@ -45,7 +45,7 @@ public class Connect4 implements Serializable {
         
     public static void main(String[] args) throws MenuException, Connect4Exception {
         Connect4 myGame = new Connect4();
-        myGame.displayWelcome();
+       myGame.displayWelcome();
         MainMenuView mainMenu = new MainMenuView() {
 
             @Override
@@ -64,15 +64,6 @@ public class Connect4 implements Serializable {
     }
 
     private void displayWelcome () {
-         System.out.println(this.instructions);
+        System.out.println(this.instructions);}
         
-        MainMenuView mainMenu = new MainMenuView() {
-
-             @Override
-             public void getInput() {
-                 throw new UnsupportedOperationException("Not supported yet.");
-             }
-         };
-        mainMenu.executeCommands(null);
-    }
 }
