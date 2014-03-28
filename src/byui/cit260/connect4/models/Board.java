@@ -6,6 +6,8 @@
 
 package byui.cit260.connect4.models;
 
+import byui.cit260.connect4.enums.ErrorType;
+import byui.cit260.connect4.exceptions.GameException;
 import java.io.Serializable;
 
 
@@ -18,7 +20,7 @@ public class Board implements Serializable{
 
     private int rowCount = 6;
     private int columnCount = 7;
-   
+
     private Location[][] boardLocations;
 
     public Board() {
@@ -102,5 +104,14 @@ public class Board implements Serializable{
          
             }            
         }    
+    }
+    
+    public void occupyLocation(Location player, int row, int column) throws GameException {
+        Location playerAtLocation = this.boardLocations[row][column];
+        
+        if (playerAtLocation != null) {
+            throw new GameException(ErrorType.ERROR104.getMessage());
+        }
+        this.boardLocations[row][column] = player;
     }
 }
