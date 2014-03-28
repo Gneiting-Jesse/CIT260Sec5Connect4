@@ -6,6 +6,8 @@
 
 package byui.cit260.connect4.menuviews;
 
+import byui.cit260.connect4.enums.ErrorType;
+import byui.cit260.connect4.exceptions.MenuException;
 import connect4.Connect4;
 import byui.cit260.connect4.menucontrols.MainMenuControl;
 import connect4.Menu;
@@ -67,10 +69,12 @@ public abstract class MainMenuView extends Menu implements Serializable {
                     this.mainMenuControl.displayHelpMenu();            
                     break;
                 case "Q":
-                    return "Q";
+                    break;
+                default: 
+                    throw new MenuException(ErrorType.ERROR101.getMessage());
             }
             }
-             catch (Exception e) {
+             catch (MenuException e) {
                 System.out.println("\n" + e.getMessage());
             }
             } while (!command.equals("Q"));

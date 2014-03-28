@@ -10,7 +10,9 @@ package connect4;
  *
  * @author Jesse Gneiting and Marcy Jagielski
  */
+import byui.cit260.connect4.enums.ErrorType;
 import byui.cit260.connect4.exceptions.Connect4Exception;
+import byui.cit260.connect4.exceptions.MenuException;
 import byui.cit260.connect4.menuviews.MainMenuView;
 import java.io.Serializable;
 import java.util.Scanner;
@@ -41,7 +43,7 @@ public class Connect4 implements Serializable {
         this.instructions = instructions;
     }
         
-    public static void main(String[] args) {
+    public static void main(String[] args) throws MenuException, Connect4Exception {
         Connect4 myGame = new Connect4();
         myGame.displayWelcome();
         MainMenuView mainMenu = new MainMenuView() {
@@ -54,7 +56,7 @@ public class Connect4 implements Serializable {
          try {
             mainMenu.executeCommands(null);
         } catch (Exception ex) {
-            System.out.println(ex.getMessage());
+            throw new Connect4Exception(ErrorType.ERROR101.getMessage());
         }
         finally {
             Connect4.inFile.close();

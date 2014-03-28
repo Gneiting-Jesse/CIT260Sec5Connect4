@@ -10,6 +10,8 @@ package byui.cit260.connect4.menuviews;
  *
  * @author marcy
  */
+import byui.cit260.connect4.enums.ErrorType;
+import byui.cit260.connect4.exceptions.MenuException;
 import connect4.Connect4;
 import byui.cit260.connect4.menucontrols.HelpMenuControl;
 import connect4.Menu;
@@ -42,7 +44,7 @@ public abstract class HelpMenuView extends Menu implements Serializable {
         this.helpMenuControl = helpMenuControl;
     }
 
-    public String executeCommands (Object object) {
+    public String executeCommands (Object object) throws MenuException {
     // display the help menu and get the end users input selection             
         String command;
         Scanner inFile = Connect4.getInputFile();
@@ -67,9 +69,7 @@ public abstract class HelpMenuView extends Menu implements Serializable {
                 case "Q": 
                     break;
                 default: 
-                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.println("\tError. Invalid choice. Please enter a valid option.");
-                    System.out.println("\t~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                    throw new MenuException(ErrorType.ERROR102.getMessage());
             }
         } while (!command.equals("Q"));  
         return ("Q");

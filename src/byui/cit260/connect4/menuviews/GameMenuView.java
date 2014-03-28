@@ -9,6 +9,8 @@ package byui.cit260.connect4.menuviews;
  *
  * @author marcy
  */
+import byui.cit260.connect4.enums.ErrorType;
+import byui.cit260.connect4.exceptions.MenuException;
 import connect4.Connect4;
 import byui.cit260.connect4.menucontrols.GameMenuControl;
 import connect4.Menu;
@@ -40,7 +42,7 @@ public abstract class GameMenuView extends Menu implements Serializable{
         this.gameMenuControl = gameMenuControl;
     }
     
-        public String excecuteCommands(Object object) {
+        public String excecuteCommands(Object object) throws MenuException {
         String command;
         Scanner inFile = Connect4.getInputFile(); 
         
@@ -64,9 +66,7 @@ public abstract class GameMenuView extends Menu implements Serializable{
                 case "Q":
                     break;
                 default:
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-                    System.out.println("Error. Invalid choice. Please enter a valid option.");
-                    System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n");
+                    throw new MenuException(ErrorType.ERROR102.getMessage());
             }
         }while (!command.equals("Q"));
         return ("Q");
