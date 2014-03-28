@@ -44,13 +44,13 @@ public abstract class HelpMenuView extends Menu implements Serializable {
         this.helpMenuControl = helpMenuControl;
     }
 
-    public String executeCommands (Object object) throws MenuException {
+    public String executeCommands (Object object) {
     // display the help menu and get the end users input selection             
         String command = null;
         Scanner inFile = Connect4.getInputFile();
         
         do {
-            
+            try {
             this.display(); // display the menu
             
             // get commaned entered
@@ -69,9 +69,12 @@ public abstract class HelpMenuView extends Menu implements Serializable {
                 case "Q": 
                     break;
                 default: 
-                    throw new MenuException(ErrorType.ERROR102.getMessage());
+                    throw new MenuException(ErrorType.ERROR101.getMessage());
             }
-            
+            }
+             catch (MenuException e) {
+                System.out.println("\n" + e.getMessage());
+            }
         } while (!command.equals("Q"));  
         return ("Q");
     }

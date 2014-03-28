@@ -6,8 +6,11 @@
 
 package byui.cit260.connect4.menucontrols;
 
+import byui.cit260.connect4.exceptions.MenuException;
 import byui.cit260.connect4.interfaces.DisplayHelpMenu;
 import byui.cit260.connect4.menuviews.HelpMenuView;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,10 +49,13 @@ public class GameMenuControl implements DisplayHelpMenu{
 
              @Override
              public void getInput() {
-                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
              }
          };
-        helpMenu.executeCommands(null);
+        try {
+            helpMenu.executeCommands(null);
+        } catch (MenuException ex) {
+            Logger.getLogger(GameMenuControl.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void displayPlayerName() {

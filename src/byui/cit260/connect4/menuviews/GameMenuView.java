@@ -42,11 +42,12 @@ public abstract class GameMenuView extends Menu implements Serializable{
         this.gameMenuControl = gameMenuControl;
     }
     
-        public String excecuteCommands(Object object) throws MenuException {
-        String command;
+        public String excecuteCommands(Object object) {
+        String command = null;
         Scanner inFile = Connect4.getInputFile(); 
         
-        do {            
+        do {     
+            try {
             this.display(); //displays the menu
             
             //get input
@@ -66,8 +67,12 @@ public abstract class GameMenuView extends Menu implements Serializable{
                 case "Q":
                     break;
                 default:
-                    throw new MenuException(ErrorType.ERROR102.getMessage());
+                    throw new MenuException(ErrorType.ERROR101.getMessage());
             }
+            }
+             catch (MenuException e) {
+                System.out.println("\n" + e.getMessage());
+                     }
         }while (!command.equals("Q"));
         return ("Q");
     }

@@ -56,7 +56,7 @@ public class Connect4 implements Serializable {
          try {
             mainMenu.executeCommands(null);
         } catch (Exception ex) {
-            throw new Connect4Exception(ErrorType.ERROR101.getMessage());
+           System.out.println(ex.getMessage());
         }
         finally {
             Connect4.inFile.close();

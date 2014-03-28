@@ -12,11 +12,7 @@ package byui.cit260.connect4.enums;
  */
 public enum ErrorType {
     
-    ERROR101 ("\tInvalid command. Please enter a valid command."),
-    
-    ERROR102 ("\tInvalid command in the Help Menu. Returned back to the Main Menu."),
-    
-    ERROR103 ("\tInvalid command in the Game Menu. Returned back to the Main Menu.");
+    ERROR101 ("\tInvalid command. Please enter a valid command.");
 
     String message;
     
