@@ -62,10 +62,6 @@ public class MainMenuControl implements DisplayHelpMenu {
              public void getInput() {
              }
          };
-        try {
-            helpMenu.executeCommands(null);
-        } catch (MenuException ex) {
-            Logger.getLogger(MainMenuControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        helpMenu.executeCommands(null);
     } 
 }

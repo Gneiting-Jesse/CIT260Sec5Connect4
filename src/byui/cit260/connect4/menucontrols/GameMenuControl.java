@@ -51,11 +51,7 @@ public class GameMenuControl implements DisplayHelpMenu{
              public void getInput() {
              }
          };
-        try {
-            helpMenu.executeCommands(null);
-        } catch (MenuException ex) {
-            Logger.getLogger(GameMenuControl.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        helpMenu.executeCommands(null);
     }
     
     public void displayPlayerName() {
