@@ -6,17 +6,26 @@
 
 package byui.cit260.connect4.frames;
 
+import byui.cit260.connect4.menucontrols.MainMenuControl;
 /**
  *
  * @author Owner
  */
 public class MainFrame extends javax.swing.JFrame {
-
+    public MainMenuControl executeCommands = new MainMenuControl();
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+    }
+
+    public MainMenuControl getExecuteCommands() {
+        return executeCommands;
+    }
+
+    public void setExecuteCommands(MainMenuControl executeCommands) {
+        this.executeCommands = executeCommands;
     }
     
 
@@ -73,6 +82,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         onePlayerGame.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         onePlayerGame.setText("Begin a One Player Game");
+        onePlayerGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                onePlayerGameActionPerformed(evt);
+            }
+        });
 
         twoPlayerGame.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         twoPlayerGame.setText("Begin a Two Player Game");
@@ -84,12 +98,27 @@ public class MainFrame extends javax.swing.JFrame {
 
         takeQuiz.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         takeQuiz.setText("Take Quiz");
+        takeQuiz.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                takeQuizActionPerformed(evt);
+            }
+        });
 
         getHelp.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         getHelp.setText("Help");
+        getHelp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getHelpActionPerformed(evt);
+            }
+        });
 
         exitGame.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         exitGame.setText("Quit");
+        exitGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitGameActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jpMenuItemsLayout = new javax.swing.GroupLayout(jpMenuItems);
         jpMenuItems.setLayout(jpMenuItemsLayout);
@@ -178,6 +207,22 @@ public class MainFrame extends javax.swing.JFrame {
     private void twoPlayerGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoPlayerGameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_twoPlayerGameActionPerformed
+
+    private void exitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameActionPerformed
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_exitGameActionPerformed
+
+    private void getHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getHelpActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_getHelpActionPerformed
+
+    private void takeQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeQuizActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_takeQuizActionPerformed
+
+    private void onePlayerGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onePlayerGameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_onePlayerGameActionPerformed
 
     /**
      * @param args the command line arguments

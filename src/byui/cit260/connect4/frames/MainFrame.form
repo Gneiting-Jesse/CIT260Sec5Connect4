@@ -171,6 +171,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Begin a One Player Game"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="onePlayerGameActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="twoPlayerGame">
               <Properties>
@@ -190,6 +193,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Take Quiz"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="takeQuizActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="getHelp">
               <Properties>
@@ -198,6 +204,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Help"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getHelpActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="exitGame">
               <Properties>
@@ -206,6 +215,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Quit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitGameActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
