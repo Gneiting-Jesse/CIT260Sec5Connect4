@@ -13,6 +13,7 @@ package connect4;
 import byui.cit260.connect4.enums.ErrorType;
 import byui.cit260.connect4.exceptions.Connect4Exception;
 import byui.cit260.connect4.exceptions.MenuException;
+import byui.cit260.connect4.frames.MainFrame;
 import byui.cit260.connect4.menuviews.MainMenuView;
 import java.io.Serializable;
 import java.util.Scanner;
@@ -45,8 +46,26 @@ public class Connect4 implements Serializable {
         
     public static void main(String[] args) throws Connect4Exception {
         Connect4 myGame = new Connect4();
+        try {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                Connect4.mainFrame = new MainFrame();
+                Connect4.mainFrame.setVisible(true);
+            }
+        });
+        }
+        catch (throwable ex) {
+            ErrorType.displayErorrMsg("Unexpected error: " + ex.getMessage());
+            ErrorType.displayErorrMsg(ex.getStackTrace().toString());
+        }
+        finally {
+            if (Connect4.mainFrame != null) {
+                Connect4.mainFrame.dispose();
+            }
+        }
        myGame.displayWelcome();
         MainMenuView mainMenu = new MainMenuView() {
+            
 
             @Override
             public void getInput() {

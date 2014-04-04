@@ -22,8 +22,8 @@ public abstract class MainMenuView extends Menu implements Serializable {
     
 
     private static final String[][] menuItems = {
-        {"1", "Begin a One player game"},
-        {"2", "Begin a Two player game"},
+        {"1", "Begin a One Player Game"},
+        {"2", "Begin a Two Player Game"},
         {"T", "Take Quiz"},
         {"H", "Help"},
         {"Q", "Quit"}
