@@ -18,6 +18,7 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -182,7 +183,7 @@ public class MainFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitGame;

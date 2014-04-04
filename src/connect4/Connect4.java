@@ -20,6 +20,7 @@ import java.util.Scanner;
 
 public class Connect4 implements Serializable {
     private static final Scanner inFile = new Scanner(System.in);
+    private static MainFrame mainFrame;
     // Instance variables
     private String instructions = "\t\t\t Welcome to Connect4!\n\n"
             + "\tYou will have the option of choosing a 1 player game or\n"
@@ -48,13 +49,14 @@ public class Connect4 implements Serializable {
         Connect4 myGame = new Connect4();
         try {
         java.awt.EventQueue.invokeLater(new Runnable() {
+            
             public void run() {
                 Connect4.mainFrame = new MainFrame();
                 Connect4.mainFrame.setVisible(true);
             }
         });
         }
-        catch (throwable ex) {
+        catch (Throwable ex) {
             ErrorType.displayErorrMsg("Unexpected error: " + ex.getMessage());
             ErrorType.displayErorrMsg(ex.getStackTrace().toString());
         }
