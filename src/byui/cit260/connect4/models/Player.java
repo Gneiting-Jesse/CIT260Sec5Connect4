@@ -6,6 +6,7 @@
 
 package byui.cit260.connect4.models;
 
+import byui.cit260.connect4.enums.PlayerType;
 import java.io.Serializable;
 
 /**
@@ -31,6 +32,10 @@ public class Player implements Serializable {
     public Player(String playerType, String marker) {
         this.playerType = playerType;
         this.marker = marker;
+    }
+
+    public Player(PlayerType playerType, String PLAYER_1_DEFAULT_MARKER) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getName() {

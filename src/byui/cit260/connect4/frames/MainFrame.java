@@ -6,13 +6,15 @@
 
 package byui.cit260.connect4.frames;
 
+import byui.cit260.connect4.enums.GameType;
 import byui.cit260.connect4.menucontrols.MainMenuControl;
+import byui.cit260.connect4.models.Game;
 /**
  *
- * @author Owner
+ * @author Marcy and Jesse
  */
 public class MainFrame extends javax.swing.JFrame {
-    public MainMenuControl executeCommands = new MainMenuControl();
+    private MainMenuControl mainCommands = new MainMenuControl();
     /**
      * Creates new form MainFrame
      */
@@ -20,12 +22,12 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    public MainMenuControl getExecuteCommands() {
-        return executeCommands;
+    public MainMenuControl getMainCommands() {
+        return mainCommands;
     }
 
-    public void setExecuteCommands(MainMenuControl executeCommands) {
-        this.executeCommands = executeCommands;
+    public void setMainCommands(MainMenuControl mainCommands) {
+        this.mainCommands = mainCommands;
     }
     
 
@@ -205,7 +207,10 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void twoPlayerGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoPlayerGameActionPerformed
-        // TODO add your handling code here:
+        Game game = this.mainCommands.create(GameType.TWO_PLAYER);
+        EnterPlayerNames enterPlayerNames = new EnterPlayerNames(game);
+        enterPlayerNames.initializeForm();
+        enterPlayerNames.setVisible(true);
     }//GEN-LAST:event_twoPlayerGameActionPerformed
 
     private void exitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameActionPerformed
@@ -221,7 +226,10 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_takeQuizActionPerformed
 
     private void onePlayerGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onePlayerGameActionPerformed
-        // TODO add your handling code here:
+        Game game = this.mainCommands.create(GameType.ONE_PLAYER);
+        EnterPlayerNames enterPlayerNames = new EnterPlayerNames(game);
+        enterPlayerNames.initializeForm();
+        enterPlayerNames.setVisible(true);
     }//GEN-LAST:event_onePlayerGameActionPerformed
 
     /**

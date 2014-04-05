@@ -6,6 +6,7 @@
 
 package byui.cit260.connect4.models;
 
+import byui.cit260.connect4.enums.GameType;
 import byui.cit260.connect4.models.Board;
 import java.io.Serializable;
 
@@ -27,7 +28,7 @@ public class Game implements Serializable{
     public static final String QUIT = "QUIT";
     public static final String ERROR = "ERROR";
     
-    private String gameType;
+    private GameType gameType;
     private Player player1;
     private Player player2;
     private Player currentPlayer;
@@ -46,17 +47,17 @@ public class Game implements Serializable{
         
     }
     
-    public Game(String gameType) {
+    public Game(GameType gameType) {
         this();
         this.gameType = gameType;
         this.board = new Board(6, 7);
     }
 
-    public String getGameType() {
+    public GameType getGameType() {
         return gameType;
     }
 
-    public void setGameType(String gameType) {
+    public void setGameType(GameType gameType) {
         this.gameType = gameType;
     }
 
