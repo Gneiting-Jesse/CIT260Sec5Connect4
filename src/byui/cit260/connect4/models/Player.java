@@ -19,7 +19,7 @@ public class Player implements Serializable {
     public static final String COMPUTER_PLAYER = "COMPUTER";
     
     private String name;
-    private String playerType;
+    private PlayerType playerType;
     private long wins = 0;
     private long losses = 0;
     private long ties = 0;
@@ -29,13 +29,9 @@ public class Player implements Serializable {
         
     }
     
-    public Player(String playerType, String marker) {
+    public Player(PlayerType playerType, String marker) {
         this.playerType = playerType;
         this.marker = marker;
-    }
-
-    public Player(PlayerType playerType, String PLAYER_1_DEFAULT_MARKER) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getName() {
@@ -46,11 +42,11 @@ public class Player implements Serializable {
         this.name = name;
     }
 
-    public String getPlayerType() {
+    public PlayerType getPlayerType() {
         return playerType;
     }
 
-    public void setPlayerType(String playerType) {
+    public void setPlayerType(PlayerType playerType) {
         this.playerType = playerType;
     }
 

@@ -12,15 +12,32 @@ package connect4;
  */
 import byui.cit260.connect4.enums.ErrorType;
 import byui.cit260.connect4.exceptions.Connect4Exception;
-import byui.cit260.connect4.exceptions.MenuException;
 import byui.cit260.connect4.frames.MainFrame;
 import byui.cit260.connect4.menuviews.MainMenuView;
+import byui.cit260.connect4.models.Player;
 import java.io.Serializable;
 import java.util.Scanner;
 
 public class Connect4 implements Serializable {
+    public static MainFrame mainFrame = null;
+    /**
+     *
+     */
+    
+    private Player[] players = new Player[10];
+
+    public Connect4() {
+        
+    }
+
+    public Player[] getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(Player[] players) {
+        this.players = players;
+    }
     private static final Scanner inFile = new Scanner(System.in);
-    private static MainFrame mainFrame;
     // Instance variables
     private String instructions = "\t\t\t Welcome to Connect4!\n\n"
             + "\tYou will have the option of choosing a 1 player game or\n"
@@ -29,9 +46,6 @@ public class Connect4 implements Serializable {
             + "\tpieces consecutively in a line either vertically,\n"
             + "\thorizontally or diagonally.\n\n"
             + "\tGood Luck!\n\n";
-
-    public Connect4() {
-    }
 
     public static Scanner getInputFile() {
         return inFile;
