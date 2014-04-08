@@ -50,21 +50,6 @@ public class MainMenuControl implements DisplayHelpMenu {
         return game;
     } 
     
-    private Quiz quiz = new Quiz();
-    
-    public MainMenuControl(){
-        
-    }
-
-    public Quiz getQuiz() {
-        return quiz;
-    }
-
-    public void setQuiz(Quiz quiz) {
-        this.quiz = quiz;
-    }
-    
-    
      public void startOnePlayerGame() {
         
         System.out.println("\tThis option would allow the user\n"

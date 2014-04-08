@@ -11,19 +11,19 @@ import byui.cit260.connect4.models.Player;
 
 /**
  *
- * @author Jesse
+ * @author Jesse and Marcy
  */
 public class PlayerNameMenuControl {
-    public static void savePlayersNames(Game game, String playerAName, String playerBName) {
+    public static void savePlayersNames(Game game, String player1Name, String player2Name) {
        if (game == null 
-               || playerAName == null
-               || playerBName == null) {
+               || player1Name == null
+               || player2Name == null) {
            throw new IllegalArgumentException("savePlayersNames - parameter value is null");
        }
        Player player1 = game.getPlayer1();
        Player player2 = game.getPlayer2();
-       player1.setName(playerAName);
-       player2.setName(playerBName);
+       player1.setName(player1Name);
+       player2.setName(player2Name);
     }
     
 }

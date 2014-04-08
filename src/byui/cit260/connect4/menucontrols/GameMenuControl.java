@@ -8,7 +8,9 @@ package byui.cit260.connect4.menucontrols;
 
 import byui.cit260.connect4.exceptions.MenuException;
 import byui.cit260.connect4.interfaces.DisplayHelpMenu;
+import byui.cit260.connect4.menuviews.GetMarkerView;
 import byui.cit260.connect4.menuviews.HelpMenuView;
+import byui.cit260.connect4.menuviews.PlayerNameMenu;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -24,24 +26,24 @@ public class GameMenuControl implements DisplayHelpMenu{
     }
     
     public void displayGetMarker() {
-         System.out.println("\tstub. This woudl display the marker\n");
+        GetMarkerView getMarker = new GetMarkerView();
+         getMarker.getInput();
+        
+    }
+     public void displayPlayerName() {
+        PlayerNameMenu setupPlayers = new PlayerNameMenu();
+        setupPlayers.getPlayerNames();
+        setupPlayers.displayPlayerNames();
         
     }
     
-    public void displayBeginGame() {
+    public void beginGame() {
         
         System.out.println("\tstub. This option would allow the user\n"
                            +"\tto play a new game.");
         
     }
-    
-    public void displayStatistics() {
-        
-        System.out.println("\tstub. This option would allow the user\n"
-                           + "\tto go to the Statistics page.");
-        
-    }
-    
+       
     @Override
     public void displayHelpMenu() {
         
@@ -54,10 +56,5 @@ public class GameMenuControl implements DisplayHelpMenu{
         helpMenu.executeCommands(null);
     }
     
-    public void displayPlayerName() {
-         System.out.println("\tstub. This would display the players\n"
-                           + "\tname on the line.");
-        
-    }
-    
 }
+   
