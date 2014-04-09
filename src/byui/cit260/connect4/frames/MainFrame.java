@@ -157,9 +157,10 @@ public class MainFrame extends javax.swing.JFrame {
         jtWelcome.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jtWelcome.setLineWrap(true);
         jtWelcome.setRows(5);
-        jtWelcome.setText("               Welcome to Connect 4\n\nYou will have the option of choosing a 1 player game or a 2 player game. Each player will have a different game piece. The object of the game is to place 4 of your game pieces consecutively in a line either vertically, horizontally or diagonally.\n\n               Good Luck!!!");
+        jtWelcome.setText("               \n               Welcome to Connect 4\n\nYou will have the option of choosing a 1 player game or a 2 player game. Each player will have a different game piece.\nThe object of the game is to place 4 of your game pieces consecutively in a line either vertically, horizontally or diagonally.\n\n                       Good Luck!!!");
         jtWelcome.setToolTipText("");
         jtWelcome.setWrapStyleWord(true);
+        jtWelcome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         jtWelcome.setMargin(new java.awt.Insets(5, 5, 5, 5));
         jScrollPane1.setViewportView(jtWelcome);
 

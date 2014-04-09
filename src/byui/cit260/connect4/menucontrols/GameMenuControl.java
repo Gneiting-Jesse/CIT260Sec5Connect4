@@ -11,6 +11,7 @@ import byui.cit260.connect4.interfaces.DisplayHelpMenu;
 import byui.cit260.connect4.menuviews.GetMarkerView;
 import byui.cit260.connect4.menuviews.HelpMenuView;
 import byui.cit260.connect4.menuviews.PlayerNameMenu;
+import byui.cit260.connect4.models.Game;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,6 +24,10 @@ public class GameMenuControl implements DisplayHelpMenu{
     //default constructor
     public GameMenuControl(){
         
+    }
+
+    public GameMenuControl(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public void displayGetMarker() {
