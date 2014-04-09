@@ -18,7 +18,11 @@ public enum ErrorType {
     
     ERROR103 ("\tInvalid command in the Game Menu. Returned back to the Main Menu."),
     
-    ERROR104 ("\tThis location is already occupied. Try again.");
+    ERROR104 ("\tThis location is already occupied. Try again."),
+    
+    ERROR105 ("\tEnter a non-blank character for the maker."),
+    
+    ERROR106 ("\tBoth players cannot use the same character for the marker.");
 
     String message;
     

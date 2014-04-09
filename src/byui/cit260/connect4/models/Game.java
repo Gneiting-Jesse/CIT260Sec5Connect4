@@ -50,7 +50,13 @@ public class Game implements Serializable{
     public Game(GameType gameType) {
         this();
         this.gameType = gameType;
-        this.board = new Board(6, 7);
+        this.board = new Board(6, 7) {
+
+            @Override
+            public Object getValueAt(int i, int i1) {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
     }
 
     public GameType getGameType() {

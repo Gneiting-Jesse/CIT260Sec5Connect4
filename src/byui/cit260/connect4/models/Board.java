@@ -8,6 +8,8 @@ package byui.cit260.connect4.models;
 
 import byui.cit260.connect4.enums.ErrorType;
 import byui.cit260.connect4.exceptions.GameException;
+import java.awt.Point;
+import javax.swing.table.AbstractTableModel;
 import java.io.Serializable;
 
 
@@ -15,18 +17,27 @@ import java.io.Serializable;
  *
  * @author Jesse
  */
-public class Board implements Serializable{
+public abstract class Board extends AbstractTableModel{
     
 
     private int rowCount = 6;
     private int columnCount = 7;
-
+    private String name;
+    private Point boardDimensions = new Point();
     private Location[][] boardLocations;
 
     public Board() {
         
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
     public int getRowCount() {
         return rowCount;
     }
@@ -51,14 +62,25 @@ public class Board implements Serializable{
         this.boardLocations = boardLocations;
     }
     
+    public Location getPlayerAt(int row, int column) {
+        return this.boardLocations[row][column];
+    }
+    
     public static void mainMeth() {
-       Board board = new Board();
+       Board board = new Board() {
+
+           @Override
+           public Object getValueAt(int i, int i1) {
+               throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           }
+       };
        board.displayBoard();
        
     }
 
     public Board(int noRows, int noColumns) {
-  
+        this.boardDimensions.setLocation(noRows, noRows);
+        this.boardLocations = new Location[noRows][noColumns];
         this.createBoardLocations(noRows, noColumns);
     }
 

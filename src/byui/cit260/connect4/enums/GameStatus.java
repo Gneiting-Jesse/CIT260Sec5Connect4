@@ -11,7 +11,9 @@ package byui.cit260.connect4.enums;
  * @author marcy
  */
 public enum GameStatus {
+    CONTINUE ("CONTINUE"),
     NEW_GAME ("NEW_GAME"),
+    PLAYING ("PLAYING"), 
     PLAYINGORDER ("PLAYINGORDER"),
     WINNER ("WINNER"),
     TIE ("TIE"),

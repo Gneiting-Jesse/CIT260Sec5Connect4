@@ -6,6 +6,7 @@
 
 package byui.cit260.connect4.menuviews;
 
+import byui.cit260.connect4.models.Game;
 import java.util.Scanner;
 
 /**
@@ -17,6 +18,14 @@ public class GetMarkerView {
     public static void mainMeth(String[] args) {
        GetMarkerView getMarker = new GetMarkerView();
        getMarker.getInput();
+    }
+
+    public GetMarkerView(Game game) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public GetMarkerView() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public String getInput() {

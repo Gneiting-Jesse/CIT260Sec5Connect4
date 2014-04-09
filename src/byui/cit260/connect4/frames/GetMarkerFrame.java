@@ -18,8 +18,7 @@ import byui.cit260.connect4.exceptions.GameException;
  * @author marcy
  */
 public class GetMarkerFrame extends javax.swing.JFrame {
-    
-    private GetMarkerView gamecommands;
+    private GetMarkerView executeCommands;
     private GameFrame gameFrame = null;
     private Game game = null;
     /**
@@ -34,18 +33,9 @@ public class GetMarkerFrame extends javax.swing.JFrame {
         this();
         this.game = game;
         this.gameFrame = gameFrame;
-        this.GetMarkerView = new 
+        this.executeCommands = new GetMarkerView(game); 
     }
     
-    public void initializeForm() {
-        if (this.game.getGameType() == GameType.ONE_PLAYER) {
-            this.jLabel1.setEnabled(false);
-            this.jtPlayer1Name.setEnabled(false);
-            this.jtPlayer1Name.setText("Computer");
-            
-        }
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -58,8 +48,8 @@ public class GetMarkerFrame extends javax.swing.JFrame {
         jpBody = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jtPlayer1Name = new javax.swing.JTextField();
-        jtPlayer2Name = new javax.swing.JTextField();
+        jtPlayer1Marker = new javax.swing.JTextField();
+        jtPlayer2Marker = new javax.swing.JTextField();
         jContinue = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -77,15 +67,15 @@ public class GetMarkerFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jLabel3.setText("Player 2 Marker:");
 
-        jtPlayer1Name.addActionListener(new java.awt.event.ActionListener() {
+        jtPlayer1Marker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtPlayer1NameActionPerformed(evt);
+                jtPlayer1MarkerActionPerformed(evt);
             }
         });
 
-        jtPlayer2Name.addActionListener(new java.awt.event.ActionListener() {
+        jtPlayer2Marker.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtPlayer2NameActionPerformed(evt);
+                jtPlayer2MarkerActionPerformed(evt);
             }
         });
 
@@ -139,8 +129,8 @@ public class GetMarkerFrame extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addGroup(jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtPlayer1Name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtPlayer2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtPlayer1Marker, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jtPlayer2Marker, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jContinue))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -151,11 +141,11 @@ public class GetMarkerFrame extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addGroup(jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtPlayer1Name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtPlayer1Marker, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jtPlayer2Name, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jtPlayer2Marker, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22)
                 .addComponent(jContinue)
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -167,7 +157,7 @@ public class GetMarkerFrame extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jpBody, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 56, Short.MAX_VALUE))
+                .addGap(0, 10, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,31 +170,27 @@ public class GetMarkerFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtPlayer1NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPlayer1NameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtPlayer1NameActionPerformed
-
-    private void jtPlayer2NameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPlayer2NameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtPlayer2NameActionPerformed
+    private void jtPlayer2MarkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPlayer2MarkerActionPerformed
+       
+    }//GEN-LAST:event_jtPlayer2MarkerActionPerformed
 
     private void jContinueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jContinueActionPerformed
         this.continueToGame();
-      
+
     }//GEN-LAST:event_jContinueActionPerformed
+
+    private void jtPlayer1MarkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtPlayer1MarkerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtPlayer1MarkerActionPerformed
 
     /**
      * @param args the command line arguments
      */
     private void continueToGame() {
-        String player1Name = this.jtPlayer1Name.getText();
-        String player2Name = this.jtPlayer2Name.getText();
-        PlayerNameMenuControl.savePlayerNames(game, player1Name, player2Name);
-        GameFrame gameFrame = new GameFrame(this.game);
-        gameFrame.setVisible(true);
-        this.dispose();
-        /* Create and display the form */
+        String player1Marker = this.jtPlayer1Marker.getText();
+        String player2Marker = this.jtPlayer2Marker.getText();
         
+        this.dispose();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -215,7 +201,7 @@ public class GetMarkerFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jpBody;
-    private javax.swing.JTextField jtPlayer1Name;
-    private javax.swing.JTextField jtPlayer2Name;
+    private javax.swing.JTextField jtPlayer1Marker;
+    private javax.swing.JTextField jtPlayer2Marker;
     // End of variables declaration//GEN-END:variables
 }
