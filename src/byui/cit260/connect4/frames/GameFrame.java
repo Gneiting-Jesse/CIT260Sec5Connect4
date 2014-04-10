@@ -15,7 +15,6 @@ import byui.cit260.connect4.menucontrols.GameMenuControl;
 import byui.cit260.connect4.models.Game;
 import byui.cit260.connect4.frames.MainFrame;
 import byui.cit260.connect4.models.Player;
-
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Insets;

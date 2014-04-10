@@ -39,17 +39,6 @@ public class EnterPlayerNames extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
-    private void bContinueMouseClicked(java.awt.event.MouseEvent evt) {
-        this.continueToGame();
-    }
-
-    private void bContinueKeyPressed(java.awt.event.KeyEvent evt) {
-        int key = evt.getKeyCode();
-        if (key == 10) {
-            this.continueToGame();
-        };
-    }
-
     private void continueToGame() {
         String player1Name = this.jtPlayer1Name.getText();
         String player2Name = this.jtPlayer2Name.getText();
@@ -110,6 +99,16 @@ public class EnterPlayerNames extends javax.swing.JFrame {
 
         bContinue.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         bContinue.setText("Continue");
+        bContinue.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bContinueMouseClicked(evt);
+            }
+        });
+        bContinue.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bContinueKeyPressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -164,6 +163,17 @@ public class EnterPlayerNames extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void bContinueKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bContinueKeyPressed
+        int key = evt.getKeyCode();
+        if (key == 10) {
+            this.continueToGame();
+        };
+    }//GEN-LAST:event_bContinueKeyPressed
+
+    private void bContinueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bContinueMouseClicked
+        this.continueToGame();
+    }//GEN-LAST:event_bContinueMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton bContinue;
