@@ -23,7 +23,7 @@ public enum GameStatus {
     String value;
     
     GameStatus(String value) {
-        this. value = value;
+        this.value = value;
     }
     
     public String getValue() {

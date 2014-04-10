@@ -7,6 +7,7 @@
 package byui.cit260.connect4.models;
 
 import byui.cit260.connect4.enums.GameType;
+import byui.cit260.connect4.frames.GameFrame;
 import byui.cit260.connect4.models.Board;
 import java.io.Serializable;
 
@@ -37,6 +38,7 @@ public class Game implements Serializable{
     private Player loser;
     private String status;
     private Board board;
+    private GameFrame gameFrame;
     
     public Game() {
         this.player1 = new Player();
@@ -57,6 +59,8 @@ public class Game implements Serializable{
                 throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
             }
         };
+
+
     }
 
     public GameType getGameType() {
@@ -131,7 +135,7 @@ public class Game implements Serializable{
         this.board = board;
     }
     
-    public void startGame() {
+    public void start() {
         this.setPlayingOrder(player1, player2);
         this.board.clearTheBoard();
         this.setStatus(Game.NEW_GAME);

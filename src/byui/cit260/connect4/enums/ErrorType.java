@@ -22,8 +22,16 @@ public enum ErrorType {
     
     ERROR105 ("\tEnter a non-blank character for the maker."),
     
-    ERROR106 ("\tBoth players cannot use the same character for the marker.");
-
+    ERROR106 ("\tBoth players cannot use the same character for the marker."),
+    
+    ERROR107 ("\tPlease start a new game first."),
+    
+    ERROR108 ("\tInvalid player type."),
+    
+    ERROR109 ("\tYou must start a new game before you can take a turn."),
+    
+    ERROR110 ("\t\"There aren't any empty locations found on the board.");
+    
     String message;
     
     ErrorType(String message) {
@@ -47,4 +55,5 @@ public enum ErrorType {
         System.out.println("\t" + dividerLine.toString());
     }
     
-}
+    }
+

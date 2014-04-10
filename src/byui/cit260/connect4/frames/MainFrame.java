@@ -219,7 +219,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_exitGameActionPerformed
 
     private void getHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getHelpActionPerformed
-        // TODO add your handling code here:
+        HelpFrame helpFrame = new HelpFrame();
+        helpFrame.setVisible(true);
     }//GEN-LAST:event_getHelpActionPerformed
 
     private void takeQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeQuizActionPerformed

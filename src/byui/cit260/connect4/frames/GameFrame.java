@@ -6,8 +6,15 @@
 
 package byui.cit260.connect4.frames;
 
+import byui.cit260.connect4.enums.GameStatus;
+import byui.cit260.connect4.enums.GameType;
+import byui.cit260.connect4.enums.PlayerType;
+import byui.cit260.connect4.exceptions.GameException;
+import byui.cit260.connect4.exceptions.Connect4Exception;
 import byui.cit260.connect4.menucontrols.GameMenuControl;
 import byui.cit260.connect4.models.Game;
+import byui.cit260.connect4.frames.MainFrame;
+import byui.cit260.connect4.models.Player;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -26,7 +33,7 @@ import javax.swing.table.TableModel;
  * @author Owner
  */
 public class GameFrame extends javax.swing.JFrame {
-    public GameMenuControl executeCommands = new GameMenuControl();
+    
     private String currentMarker = null;
     private Game game = null;
     private GameMenuControl gameCommands = null;
@@ -59,14 +66,6 @@ public class GameFrame extends javax.swing.JFrame {
         for (int i = 0; i < connect4Table.getColumnCount(); i++) {
         columnTableModel.getColumn(i).setCellRenderer(cellRenderer);
         }
-    }
-
-    public GameMenuControl getExecuteCommands() {
-        return executeCommands;
-    }
-
-    public void setExecuteCommands(GameMenuControl executeCommands) {
-        this.executeCommands = executeCommands;
     }
 
     public String getCurrentMarker() {
@@ -321,19 +320,26 @@ public class GameFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void exitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameActionPerformed
+        connect4.Connect4.mainFrame.setVisible(true);
         this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_exitGameActionPerformed
 
     private void beginGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beginGameActionPerformed
-        // TODO add your handling code here:
+        this.gameCommands.startNewGame(this.game);
+        clearMarkers();
+        takeFirstTurn();
+        String nextPlayersMessage = this.game.getCurrentPlayer().getName() + ", it's your turn.";
+        this.jtMessageArea.setText(nextPlayersMessage);
     }//GEN-LAST:event_beginGameActionPerformed
 
     private void getMarkerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getMarkerActionPerformed
-        // TODO add your handling code here:
+        GetMarkerFrame getMarkerFrame = new GetMarkerFrame();
+        getMarkerFrame.setVisible(true);
     }//GEN-LAST:event_getMarkerActionPerformed
 
     private void getHelpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getHelpActionPerformed
-        // TODO add your handling code here:
+        HelpFrame helpFrame = new HelpFrame();
+        helpFrame.setVisible(true);
     }//GEN-LAST:event_getHelpActionPerformed
 
     private void cellClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cellClicked
@@ -346,8 +352,143 @@ public class GameFrame extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     
-    
+        private void clearMarkers() {
+        TableModel model = this.connect4Table.getModel();
+        int rowCount = this.connect4Table.getRowCount();
+        int colCount = this.connect4Table.getColumnCount();
+        for (int row = 0; row < rowCount; row++) {
+            for (int col = 0; col < colCount; col++) {
+                model.setValueAt("", row, col);
+            }
+        }   
+    }
+        
+        
+        private String getNextPlayerMessage(Player player) {
+        if (this.game.getGameType() == GameType.ONE_PLAYER) {
+            return "The computer made it's move. Now make yours."
+                    + player.getName();
+        } else {
+            return "It's your turn."
+                    + player.getName();
+        }
+    }
+        
+        private boolean gameOver() {
+        if (this.game.getStatus() == GameStatus.TIE) { 
+            this.jtMessageArea.setText(this.game.getTiedMessage());
+            return true;
+        } else if (this.game.getStatus() == GameStatus.WINNER) { 
+            this.jtMessageArea.setText(this.game.getWinningMessage());
+            return true;
+        }
 
+        return false;
+    }
+        
+        private void takeFirstTurn() {
+        Player currentPlayer = this.game.getCurrentPlayer();
+        
+        if (this.game.getStatus() == GameStatus.NEW_GAME
+                && this.game.getGameType() == GameType.ONE_PLAYER
+                && currentPlayer.getPlayerType() == PlayerType.COMPUTER_PLAYER) {
+            try {
+                Point locationMarkerPlaced = this.gameCommands.playerTakesTurn(currentPlayer, null);
+
+                String playersMarker = game.getCurrentPlayer().getMarker();
+                this.connect4Table.getModel().setValueAt(playersMarker, locationMarkerPlaced.x, locationMarkerPlaced.y);
+                
+            } catch (Exception ex) {
+                this.jtMessageArea.setText(ex.getMessage());
+                ex.printStackTrace();
+                this.dispose();
+            }
+        }
+        
+        String promptNextPlayer = getNextPlayerMessage(currentPlayer);
+        this.jtMessageArea.setText(promptNextPlayer);
+        this.game.setStatus(GameStatus.PLAYING);
+    }
+
+    private void takeTurn(JTable table) {
+        String playersMarker;
+        int selectedRow = table.getSelectedRow();
+        int selectedColumn = table.getSelectedColumn();
+        Point selectedLocation = new Point(selectedRow, selectedColumn);
+
+        Player currentPlayer = this.game.getCurrentPlayer();
+        Player otherPlayer = this.game.getOtherPlayer();
+
+        try {
+
+            if (this.game.getGameType() == GameType.ONE_PLAYER) {
+                // regular players turn
+                Point locationMarkerPlaced = 
+                this.gameCommands.playerTakesTurn(currentPlayer, selectedLocation);
+                playersMarker = currentPlayer.getMarker();
+                table.getModel().setValueAt(playersMarker, locationMarkerPlaced.x, locationMarkerPlaced.y);
+                if (this.gameOver()) { 
+                    return;
+                }
+              
+                table.setCellSelectionEnabled(false);
+                ListSelectionModel selectionModel = table.getSelectionModel();
+                selectionModel.clearSelection();
+                
+
+                // computers turn
+                locationMarkerPlaced = this.gameCommands.playerTakesTurn(otherPlayer, null);
+                playersMarker = otherPlayer.getMarker();
+                table.getModel().setValueAt(playersMarker, locationMarkerPlaced.x, locationMarkerPlaced.y);
+
+                if (this.gameOver()) { // game won or tied?
+                    return;
+                }
+                
+            } else { 
+                               
+                Point locationMarkerPlaced = this.gameCommands.playerTakesTurn(this.game.getCurrentPlayer(), selectedLocation);
+                playersMarker = currentPlayer.getMarker();
+                table.getModel().setValueAt(playersMarker, locationMarkerPlaced.x, selectedColumn);
+                if (this.gameOver()) { // game won or tied?
+                    return;
+                }
+                
+                table.setCellSelectionEnabled(false);
+                ListSelectionModel selectionModel = table.getSelectionModel();
+                selectionModel.clearSelection();
+            }
+
+            if (this.gameOver()) { // game won or tied?
+                return;
+            }
+
+            String promptNextPlayer = getNextPlayerMessage(this.game.getCurrentPlayer());
+            this.jtMessageArea.setText(promptNextPlayer);
+
+        } catch (GameException | Connect4Exception gex) {
+            this.jtMessageArea.setText(gex.getMessage());
+            ListSelectionModel selectionModel = table.getSelectionModel();
+            selectionModel.clearSelection();
+        } catch (Exception ex) {
+            this.jtMessageArea.setText(ex.getMessage());
+            ex.printStackTrace();
+            this.dispose();
+        }
+    }
+
+    private class CellRenderer extends DefaultTableCellRenderer {
+
+        public CellRenderer() {
+            super();
+        }
+
+        public void setValue(Player player) {
+            setText((player == null) ? "" : player.getMarker());
+        }
+    }
+
+        
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton beginGame;
     private javax.swing.JTable connect4Table;
