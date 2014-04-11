@@ -47,7 +47,6 @@ public class MainFrame extends javax.swing.JFrame {
         jpMenuItems = new javax.swing.JPanel();
         onePlayerGame = new javax.swing.JButton();
         twoPlayerGame = new javax.swing.JButton();
-        takeQuiz = new javax.swing.JButton();
         getHelp = new javax.swing.JButton();
         exitGame = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -99,14 +98,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
-        takeQuiz.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
-        takeQuiz.setText("Take Quiz");
-        takeQuiz.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                takeQuizActionPerformed(evt);
-            }
-        });
-
         getHelp.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         getHelp.setText("Help");
         getHelp.addActionListener(new java.awt.event.ActionListener() {
@@ -132,7 +123,6 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGroup(jpMenuItemsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(exitGame, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(getHelp, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(takeQuiz, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(twoPlayerGame, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(onePlayerGame))
                 .addContainerGap(20, Short.MAX_VALUE))
@@ -145,12 +135,10 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(twoPlayerGame)
                 .addGap(18, 18, 18)
-                .addComponent(takeQuiz)
-                .addGap(18, 18, 18)
                 .addComponent(getHelp)
                 .addGap(18, 18, 18)
                 .addComponent(exitGame)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         jtWelcome.setEditable(false);
@@ -224,10 +212,6 @@ public class MainFrame extends javax.swing.JFrame {
         helpFrame.setVisible(true);
     }//GEN-LAST:event_getHelpActionPerformed
 
-    private void takeQuizActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_takeQuizActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_takeQuizActionPerformed
-
     private void onePlayerGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_onePlayerGameActionPerformed
         Game game = this.mainCommands.create(GameType.ONE_PLAYER);
         EnterPlayerNames enterPlayerNames = new EnterPlayerNames(game);
@@ -251,7 +235,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jpTitle;
     private javax.swing.JTextArea jtWelcome;
     private javax.swing.JButton onePlayerGame;
-    private javax.swing.JButton takeQuiz;
     private javax.swing.JButton twoPlayerGame;
     // End of variables declaration//GEN-END:variables
 }
