@@ -7,16 +7,12 @@
 package byui.cit260.connect4.models;
 
 import byui.cit260.connect4.enums.PlayerType;
-import java.io.Serializable;
 
 /**
  *
  * @author marcy
  */
-public class Player implements Serializable {
-    
-    public static final String HUMAN_PLAYER = "HUMAN";
-    public static final String COMPUTER_PLAYER = "COMPUTER";
+public class Player {
     
     private String name;
     private PlayerType playerType;
@@ -25,8 +21,7 @@ public class Player implements Serializable {
     private long ties = 0;
     private String marker;
     
-    public Player () {
-        
+    public Player () {        
     }
     
     public Player(PlayerType playerType, String marker) {
@@ -50,14 +45,6 @@ public class Player implements Serializable {
         this.playerType = playerType;
     }
 
-    public String getMarker() {
-        return marker;
-    }
-
-    public void setMarker(String marker) {
-        this.marker = marker;
-    }
-
     public long getWins() {
         return wins;
     }
@@ -72,6 +59,14 @@ public class Player implements Serializable {
 
     public void setLosses(long losses) {
         this.losses = losses;
+    }
+    
+    public String getMarker() {
+        return marker;
+    }
+
+    public void setMarker(String marker) {
+        this.marker = marker;
     }
 
     public long getTies() {

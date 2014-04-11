@@ -8,7 +8,7 @@ package byui.cit260.connect4.models;
 
 /**
  *
- * @author Owner
+ * @author Marcy and Jesse
  */
 public class Location {
     public int row;

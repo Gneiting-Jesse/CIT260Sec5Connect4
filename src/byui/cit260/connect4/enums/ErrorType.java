@@ -30,7 +30,9 @@ public enum ErrorType {
     
     ERROR109 ("\tYou must start a new game before you can take a turn."),
     
-    ERROR110 ("\t\"There aren't any empty locations found on the board.");
+    ERROR110 ("\t\"There aren't any empty locations found on the board."),
+    
+    ERROR203 ("This location is already occupied. Try a different location.");
     
     String message;
     

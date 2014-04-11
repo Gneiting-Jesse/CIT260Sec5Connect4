@@ -12,20 +12,16 @@ import byui.cit260.connect4.enums.GameType;
 import byui.cit260.connect4.enums.PlayerType;
 import byui.cit260.connect4.exceptions.Connect4Exception;
 import byui.cit260.connect4.exceptions.GameException;
-import byui.cit260.connect4.exceptions.MenuException;
 import byui.cit260.connect4.interfaces.DisplayHelpMenu;
 import byui.cit260.connect4.menuviews.GetMarkerView;
 import byui.cit260.connect4.menuviews.HelpMenuView;
 import byui.cit260.connect4.menuviews.PlayerNameMenu;
 import byui.cit260.connect4.models.Board;
 import byui.cit260.connect4.models.Game;
-import byui.cit260.connect4.models.Location;
 import byui.cit260.connect4.models.Player;
 import java.awt.Point;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,6 +36,10 @@ public class GameMenuControl implements DisplayHelpMenu{
     public GameMenuControl(Game game) {
         this.game = game;
         this.board = game.getBoard();
+    }
+
+    public GameMenuControl() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
         public Point playerTakesTurn(Player player, Point selectedLocation) throws Connect4Exception, GameException {
@@ -197,10 +197,10 @@ public class GameMenuControl implements DisplayHelpMenu{
     
     
     public void clearTheBoard() {
-        Location[][] locations = this.game.getBoard().getBoardLocations();
+        Player[][] locations = this.game.getBoard().getBoardLocations();
         
         for (int i = 0; i < this.board.getBoardLocations().length; i++) {
-            Location[] rowlocations = locations[i];
+            Player[] rowlocations = locations[i];
             for (int j = 0; j < rowlocations.length; j++) {
                 rowlocations[j] = null;
             }
@@ -209,13 +209,13 @@ public class GameMenuControl implements DisplayHelpMenu{
 
 
     private boolean isTie() {
-        Location[][] locations = this.board.getBoardLocations();
+        Player[][] locations = this.board.getBoardLocations();
 
         for (int row = 0; row < locations.length; row++) {
-            Location[] rowLocations = locations[row];
+            Player[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
-                Location location = rowLocations[col];
-                if (locations[row][col] == null) { // square not taken yet
+                Player location = rowLocations[col];
+                if (locations[row][col] == null) { 
                     return false;
                 }
             }
@@ -227,10 +227,10 @@ public class GameMenuControl implements DisplayHelpMenu{
     
     private boolean isWinner() {
 
-        Location[][] locations = this.board.getBoardLocations();
+        Player[][] locations = this.board.getBoardLocations();
 
         for (int row = 0; row < locations.length; row++) {
-            Location[] rowLocations = locations[row];
+            Player[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
                 if (fourInARow(row, col, locations)) {
                     return true;
@@ -241,34 +241,38 @@ public class GameMenuControl implements DisplayHelpMenu{
         return false;
     }
 
-    private boolean fourInARow(int row, int col, Location[][] boardLocations) {
+    private boolean fourInARow(int row, int col, Player[][] boardLocations) {
         boolean winner = false;
 
         int columnLength = boardLocations[row].length;
         int rowLength = boardLocations.length;
 
-        // square not taken yet
+        
         if (boardLocations[row][col] == null) {
             return false;
         } // search for four adjacent horizontally
         else if (row < rowLength && col < columnLength - 3
                 && boardLocations[row][col] == boardLocations[row][col + 1]
-                && boardLocations[row][col] == boardLocations[row][col + 2]) {
+                && boardLocations[row][col] == boardLocations[row][col + 2]
+                && boardLocations[row][col] == boardLocations[row][col + 3]) {
             return true;
         } // search for four adjacent vertically
         else if (row < rowLength - 3 && col < columnLength
                 && boardLocations[row][col] == boardLocations[row + 1][col]
-                && boardLocations[row][col] == boardLocations[row + 2][col]) {
+                && boardLocations[row][col] == boardLocations[row + 2][col]
+                && boardLocations[row][col] == boardLocations[row + 3][col]) {
             return true;
         } // search for four adjacent diagonally leaning backward
         else if (row < rowLength - 3 && col < columnLength - 3
                 && boardLocations[row][col] == boardLocations[row + 1][col + 1]
-                && boardLocations[row][col] == boardLocations[row + 2][col + 2]) {
+                && boardLocations[row][col] == boardLocations[row + 2][col + 2]
+                && boardLocations[row][col] == boardLocations[row + 3][col + 3]) {
             return true;
         } // search for four adjacent diagonally leaning forward
         else if (row < rowLength - 3 && col > 1
                 && boardLocations[row][col] == boardLocations[row + 1][col - 1]
-                && boardLocations[row][col] == boardLocations[row + 2][col - 2]) {
+                && boardLocations[row][col] == boardLocations[row + 2][col - 2]
+                && boardLocations[row][col] == boardLocations[row + 3][col - 3]) {
             return true;
         }
 
@@ -277,22 +281,23 @@ public class GameMenuControl implements DisplayHelpMenu{
 
     private Point findWinningLocation(Player player) {
         Point coordinate = new Point();
-        Location[][] locations = this.board.getBoardLocations();
+        Player[][] locations = this.board.getBoardLocations();
         for (int row = 0; row < locations.length; row++) {
-            Location[] rowLocations = locations[row];
+            Player[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
-                Location location = rowLocations[col];
+                Player location = rowLocations[col];
                 coordinate.setLocation(row, col);
 
                 if (rowLocations[col] != null) { // location is occupied
                     continue;
                 }
 
-                // search for three adjacent horizontally
+                // search for four adjacent horizontally
                 if ((row < locations.length
-                        && col < rowLocations.length - 2)
+                        && col < rowLocations.length - 3)
                         && (locations[row][col + 1] == player
-                        && locations[row][col + 2] == player)) {
+                        && locations[row][col + 2] == player
+                        && locations[row][col + 3] == player)) {
                     return coordinate;
                 } else if ((row < locations.length
                         && col > 0 && col < rowLocations.length - 1)
@@ -303,11 +308,12 @@ public class GameMenuControl implements DisplayHelpMenu{
                         && (locations[row][col - 1] == player
                         && locations[row][col - 2] == player)) {
                     return coordinate;
-                } // search for three adjacent vertically
-                else if ((row < locations.length - 2
+                } // search for four adjacent vertically
+                else if ((row < locations.length - 3
                         && col < rowLocations.length)
                         && (locations[row + 1][col] == player
-                        && locations[row + 2][col] == player)) {
+                        && locations[row + 2][col] == player
+                        && locations[row + 3][col] == player)) {
                     return coordinate;
                 } else if ((row > 0 && row < locations.length - 1
                         && col < rowLocations.length)
@@ -318,11 +324,12 @@ public class GameMenuControl implements DisplayHelpMenu{
                         && (locations[row - 1][col] == player
                         && locations[row - 2][col] == player)) {
                     return coordinate;
-                } // search for three adjacent diagonally leaning backward
-                else if ((row < locations.length - 2
+                } // search for four adjacent diagonally leaning backward
+                else if ((row < locations.length - 3
                         && col < rowLocations.length - 2)
                         && (locations[row + 1][col + 1] == player
-                        && locations[row + 2][col + 2] == player)) {
+                        && locations[row + 2][col + 2] == player
+                        && locations[row + 3][col + 3] == player)) {
                     return coordinate;
                 } else if ((row > 0 && row < locations.length - 1
                         && col > 0 && col < rowLocations.length - 1)
@@ -333,7 +340,7 @@ public class GameMenuControl implements DisplayHelpMenu{
                         && (locations[row - 1][col - 1] == player
                         && locations[row - 2][col - 2] == player)) {
                     return coordinate;
-                } // search for three adjacent diagonally learning forward
+                } // search for four adjacent diagonally learning forward
                 else if ((row < locations.length - 2 && col > 1)
                         && (locations[row + 1][col - 1] == player
                         && locations[row + 2][col - 2] == player)) {
@@ -351,20 +358,20 @@ public class GameMenuControl implements DisplayHelpMenu{
             }
         }
 
-        return null; // not found
+        return null;
     }
 
     private Point chooseRandomLocation() {
         Point randomLocation;
 
         ArrayList<Point> listOfEmptyLocations = new ArrayList<>();
-        Location[][] locations = this.board.getBoardLocations();
+        Player[][] locations = this.board.getBoardLocations();
 
-        // create list of empty locations
+        
         for (int row = 0; row < locations.length; row++) {
-            Location[] rowLocations = locations[row];
+            Player[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
-                Location location = rowLocations[col];
+                Player location = rowLocations[col];
                 if (location == null) { // location not occupied?
                     listOfEmptyLocations.add(new Point(row, col));
                 }
@@ -373,12 +380,12 @@ public class GameMenuControl implements DisplayHelpMenu{
 
         int noOfEmptyLocations = listOfEmptyLocations.size();
 
-        if (noOfEmptyLocations == 0) { // no empty locations?
+        if (noOfEmptyLocations == 0) { 
             return null;
-        } else if (listOfEmptyLocations.size() == 1) { // only one empty location?
+        } else if (listOfEmptyLocations.size() == 1) { 
             randomLocation = listOfEmptyLocations.get(0);
             return randomLocation;
-        } else { // randomly choose one of the empty locations
+        } else { 
             int randomNumber = new Random().nextInt(noOfEmptyLocations);
             randomLocation = listOfEmptyLocations.get(randomNumber);
             return randomLocation;

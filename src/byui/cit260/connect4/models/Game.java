@@ -6,29 +6,22 @@
 
 package byui.cit260.connect4.models;
 
+import byui.cit260.connect4.enums.GameStatus;
 import byui.cit260.connect4.enums.GameType;
 import byui.cit260.connect4.frames.GameFrame;
-import byui.cit260.connect4.models.Board;
 import java.io.Serializable;
 
 /**
  *
- * @author marcy
+ * @author marcy and jesse
  */
 public class Game implements Serializable{
-    public static final String PLAYER_1_DEFAULT_MARKER = "X";
-    public static final String PLAYER_2_DEFAULT_MARKER = "O";
-    
-    public static final String ONE_PLAYER = "ONE PLAYER";
-    public static final String TWO_PLAYER = "TWO PLAYER";
-    
-    public static final String NEW_GAME = "NEW GAME";
-    public static final String PLAYINGORDER = "PLAYINGORDER";
-    public static final String WINNER = "WINNER";
-    public static final String TIE = "TIE";
-    public static final String QUIT = "QUIT";
-    public static final String ERROR = "ERROR";
-    
+    private static String PLAYER_1_DEFAULT_MARKER;
+    private static String PLAYER_2_DEFAULT_MARKER;
+    private static GameStatus NEW_GAME;
+    private static GameStatus WINNER;
+    private static GameStatus TIE;
+    private GameStatus status;
     private GameType gameType;
     private Player player1;
     private Player player2;
@@ -36,9 +29,10 @@ public class Game implements Serializable{
     private Player otherPlayer;
     private Player winner;
     private Player loser;
-    private String status;
     private Board board;
     private GameFrame gameFrame;
+    private static final String Player_1_Default_Marker = "X";
+    private static final String Player_2_Default_Marker = "O";
     
     public Game() {
         this.player1 = new Player();
@@ -102,6 +96,14 @@ public class Game implements Serializable{
     public void setOtherPlayer(Player otherPlayer) {
         this.otherPlayer = otherPlayer;
     }
+    
+     public GameStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(GameStatus status) {
+        this.status = status;
+    }
 
     public Player getWinner() {
         return winner;
@@ -119,20 +121,20 @@ public class Game implements Serializable{
         this.loser = loser;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
     public Board getBoard() {
         return board;
     }
 
     public void setBoard(Board board) {
         this.board = board;
+    }
+    
+    public GameFrame getGameFrame() {
+        return gameFrame;
+    }
+
+    public void setGameFrame(GameFrame gameFrame) {
+        this.gameFrame = gameFrame;
     }
     
     public void start() {

@@ -10,7 +10,6 @@ import byui.cit260.connect4.enums.ErrorType;
 import byui.cit260.connect4.exceptions.GameException;
 import java.awt.Point;
 import javax.swing.table.AbstractTableModel;
-import java.io.Serializable;
 
 
 /**
@@ -24,7 +23,7 @@ public abstract class Board extends AbstractTableModel{
     private int columnCount = 7;
     private String name;
     private Point boardDimensions = new Point();
-    private Location[][] boardLocations;
+    private Player[][] boardLocations;
 
     public Board() {
         
@@ -54,15 +53,15 @@ public abstract class Board extends AbstractTableModel{
         this.columnCount = columnCount;
     }
 
-    public Location[][] getBoardLocations() {
+    public Player[][] getBoardLocations() {
         return boardLocations;
     }
 
-    public void setBoardLocations(Location[][] boardLocations) {
+    public void setBoardLocations(Player[][] boardLocations) {
         this.boardLocations = boardLocations;
     }
     
-    public Location getPlayerAt(int row, int column) {
+    public Player getPlayerAt(int row, int column) {
         return this.boardLocations[row][column];
     }
     
@@ -80,7 +79,7 @@ public abstract class Board extends AbstractTableModel{
 
     public Board(int noRows, int noColumns) {
         this.boardDimensions.setLocation(noRows, noRows);
-        this.boardLocations = new Location[noRows][noColumns];
+        this.boardLocations = new Player[noRows][noColumns];
         this.createBoardLocations(noRows, noColumns);
     }
 
@@ -90,12 +89,12 @@ public abstract class Board extends AbstractTableModel{
         this.columnCount= noColumns;
         
         // add locations to the board
-        this.boardLocations = new Location[noRows][noColumns];
+        this.boardLocations = new Player[noRows][noColumns];
         // locations for every row
         for (int row = 0; row < noRows; row++) {
             //locations for every column
             for (int column = 0; column < noColumns; column++) { 
-                this.boardLocations[row][column] = new Location();           
+                this.boardLocations[row][column] = new Player();           
             }            
         }   
     }
@@ -122,18 +121,66 @@ public abstract class Board extends AbstractTableModel{
     public void clearTheBoard() {
         for (int row = 0; row < this.rowCount; row++) {
             for (int column = 0; column < this.columnCount; column++) {
-                Location location = this.boardLocations[row][column];
+                Player location = this.boardLocations[row][column];
          
             }            
         }    
     }
     
-    public void occupyLocation(Location player, int row, int column) throws GameException {
-        Location playerAtLocation = this.boardLocations[row][column];
-        
-        if (playerAtLocation != null) {
-            throw new GameException(ErrorType.ERROR104.getMessage());
+    public void occupyLocation(Player player, int row, int column) throws GameException {  
+        Player playerAtLocation = this.boardLocations[row][column];
+
+        if (playerAtLocation != null) { // location already occupied
+            throw new GameException(ErrorType.ERROR203.getMessage());
         }
         this.boardLocations[row][column] = player;
     }
+    public class Location {
+    public int row;
+    public int column;
+    private String value;
+    private Player player;
+    
+    Location() {
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    String[] getCoordinates() {
+        String[] coordinates = new String[2];
+        Integer intRow = this.getRow() + 1;
+        Integer intColumn = this.getColumn() + 1;
+        coordinates[0] = intRow.toString();
+        coordinates[1] = intColumn.toString();
+        return coordinates;
+    }}
 }
