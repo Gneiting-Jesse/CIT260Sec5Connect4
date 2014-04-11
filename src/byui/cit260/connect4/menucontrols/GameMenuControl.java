@@ -88,7 +88,7 @@ public class GameMenuControl implements DisplayHelpMenu{
                 }
                 
                 this.playerTakesTurn(otherPlayer, selectedLocation);
-                String message = "The computer made it's move. Now it's your turn again." + currentPlayer.getName();
+                String message = "The computer made it's move. Now it's your turn again. " + currentPlayer.getName();
             }
             if (currentPlayer.getPlayerType() == PlayerType.COMPUTER_PLAYER) {
                 this.playerTakesTurn(currentPlayer, selectedLocation);
@@ -145,14 +145,14 @@ public class GameMenuControl implements DisplayHelpMenu{
 
         
         this.game.getBoard().occupyLocation(player, location.x, location.y);
-        if (this.isTie()) { // game tied already
+        if (this.isTie()) { 
             this.game.recordTie();
             this.game.setStatus(GameStatus.TIE);
             return;
         }
 
         boolean aWinner = this.isWinner();
-        if (aWinner) { // game won already
+        if (aWinner) { 
             this.game.recordWinner();
             this.game.setStatus(GameStatus.WINNER);
             return;
@@ -167,13 +167,13 @@ public class GameMenuControl implements DisplayHelpMenu{
         Point coordinate;
         try {
             coordinate = this.findWinningLocation(game.getCurrentPlayer());
-            if (coordinate != null) { // winning location found for computer
+            if (coordinate != null) { 
                 return coordinate;
             }
             
-            // find winning location for other player
+            
             coordinate = this.findWinningLocation(game.getOtherPlayer());
-            if (coordinate == null) { // no winning location found for other player
+            if (coordinate == null) { 
                 coordinate = this.chooseRandomLocation();
 
                 if (coordinate == null) {
@@ -372,7 +372,7 @@ public class GameMenuControl implements DisplayHelpMenu{
             Player[] rowLocations = locations[row];
             for (int col = 0; col < rowLocations.length; col++) {
                 Player location = rowLocations[col];
-                if (location == null) { // location not occupied?
+                if (location == null) {
                     listOfEmptyLocations.add(new Point(row, col));
                 }
             }
