@@ -43,39 +43,4 @@ public abstract class HelpMenuView extends Menu implements Serializable {
     public void setHelpMenuControl(HelpMenuControl helpMenuControl) {
         this.helpMenuControl = helpMenuControl;
     }
-
-    public String executeCommands (Object object) {
-    // display the help menu and get the end users input selection             
-        String command = null;
-        Scanner inFile = Connect4.getInputFile();
-        
-        do {
-            try {
-            this.display(); // display the menu
-            
-            // get commaned entered
-            command = inFile.nextLine();
-            command = command.trim().toUpperCase();
-            
-            switch (command) {
-                case "G":
-                    this.helpMenuControl.displayGameHelp();
-                    break;
-                case "1":
-                    this.helpMenuControl.display1PlayerHelp();
-                    break;
-                case "2":
-                    this.helpMenuControl.display2PlayerHelp();
-                case "Q": 
-                    break;
-                default: 
-                    throw new MenuException(ErrorType.ERROR101.getMessage());
-            }
-            }
-             catch (MenuException e) {
-                System.out.println("\n" + e.getMessage());
-            }
-        } while (!command.equals("Q"));  
-        return ("Q");
-    }
 }

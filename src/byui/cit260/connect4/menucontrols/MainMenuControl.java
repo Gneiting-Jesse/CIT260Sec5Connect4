@@ -69,14 +69,8 @@ public class MainMenuControl implements DisplayHelpMenu {
         quiz.getAnswers();
         
     }
-    @Override
-    public void displayHelpMenu() {
-        HelpMenuView helpMenu = new HelpMenuView() {
 
-             @Override
-             public void getInput() {
-             }
-         };
-        helpMenu.executeCommands(null);
-    } 
+    public void displayHelpMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

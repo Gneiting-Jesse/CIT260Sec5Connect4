@@ -421,7 +421,6 @@ public class GameMenuControl implements DisplayHelpMenu{
              public void getInput() {
              }
          };
-        helpMenu.executeCommands(null);
     }
     
 }

@@ -70,7 +70,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jpTitleLayout.createSequentialGroup()
                 .addGap(229, 229, 229)
                 .addComponent(jlTitle)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         jpTitleLayout.setVerticalGroup(
             jpTitleLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
         jtWelcome.setFont(new java.awt.Font("Tw Cen MT", 0, 18)); // NOI18N
         jtWelcome.setLineWrap(true);
         jtWelcome.setRows(5);
-        jtWelcome.setText("               \n               Welcome to Connect 4\n\nYou will have the option of choosing a 1 player game or a 2 player game. Each player will have a different game piece.\nThe object of the game is to place 4 of your game pieces consecutively in a line either vertically, horizontally or diagonally.\n\n                       Good Luck!!!");
+        jtWelcome.setText("             Welcome to Connect 4\n\nYou will have the option of choosing a 1 player game or a 2 player game. Each player will have a different game piece. \n\nThe object of the game is to place 4 of your game pieces consecutively in a line either vertically, horizontally or diagonally.\n\n\tGood Luck!!!");
         jtWelcome.setToolTipText("");
         jtWelcome.setWrapStyleWord(true);
         jtWelcome.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -163,7 +163,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jpMenuItems, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpBodyLayout.setVerticalGroup(
             jpBodyLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

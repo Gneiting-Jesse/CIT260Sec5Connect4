@@ -6,6 +6,9 @@
 
 package byui.cit260.connect4.menucontrols;
 
+import byui.cit260.connect4.enums.ErrorType;
+import byui.cit260.connect4.enums.HelpType;
+import byui.cit260.connect4.exceptions.Connect4Exception;
 import java.io.Serializable;
 
 /**
@@ -13,32 +16,19 @@ import java.io.Serializable;
  * @author marcy
  */
 public class HelpMenuControl implements Serializable {
-    
-    public HelpMenuControl() {
-        
-    } 
 
-    public void displayGameHelp() {
-         
-        System.out.println("\tThe objective of the game is to be the first player\n"
-                + "\tto place 4 circular discs consecutively in a line\n"
-                + "\teither vertically, horizontally or diagonally.\n\n"
-                + "\tGood Luck!\n\n");
-    }
-      
-    public void display1PlayerHelp() {
-   
-        System.out.println("\tIn a 1 Player Game you will be competing against\n"
-                + "\tthe computer. It will be a battle of Man vs Machine.\n\n"); 
+    public String displayGameHelp(HelpType command) throws Connect4Exception {
+        String helpText = "";
+        switch (command) {
+            case INSTRUCTIONS:
+            case ONE_PERSON_GAME:
+            case TWO_PERSON_GAME:
+                helpText = command.displayGameHelp();
+                break;
+            default:
+                throw new Connect4Exception(ErrorType.ERROR101.getMessage());
+        }
 
-    }
-            
-    public void display2PlayerHelp() {
-    
-        System.out.println("\tIn a 2 Player Game you will have the opportunity to\n"
-                + "\tcompete against your friend, family, or even enemy to\n"
-                + "\tfind out which on of you is the best gamer.\n\n"); 
-    }
-    
-                   
+        return helpText;
+    }                  
 }
