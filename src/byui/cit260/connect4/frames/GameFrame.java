@@ -16,8 +16,6 @@ import byui.cit260.connect4.models.Game;
 import byui.cit260.connect4.frames.MainFrame;
 import byui.cit260.connect4.models.Player;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Insets;
 import java.awt.Point;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -29,7 +27,7 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.table.TableModel;
 /**
  *
- * @author Owner
+ * @author Jesse
  */
 public class GameFrame extends javax.swing.JFrame {
     
@@ -320,7 +318,7 @@ public class GameFrame extends javax.swing.JFrame {
 
     private void exitGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitGameActionPerformed
         connect4.Connect4.mainFrame.setVisible(true);
-        this.dispose();        // TODO add your handling code here:
+        this.dispose(); // TODO add your handling code here:
     }//GEN-LAST:event_exitGameActionPerformed
 
     private void beginGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_beginGameActionPerformed
@@ -342,7 +340,7 @@ public class GameFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_getHelpActionPerformed
 
     private void cellClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cellClicked
-       JTable jTable = JTable evt.getComponent();
+       JTable jTable = (JTable) evt.getComponent();
        this.jtMessageArea.setForeground(Color.BLACK);
        this.takeTurn(jTable);
     }//GEN-LAST:event_cellClicked
